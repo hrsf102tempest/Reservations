@@ -599,5 +599,5 @@ const data = [{
 },
 ];
 
-export default data;
+module.exports = data;
 // console.log(data);

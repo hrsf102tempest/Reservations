@@ -1,8 +1,8 @@
 const names = require('./businessNames.js');
-const save = require('./app');
+const { seed } = require('./app');
 
 const randomInt = (max, min = 0) => (
-  Math.random() * (max - min) + min
+  Math.floor(Math.random() * (max - min)) + min
 );
 
 const allowReservations = () => {
@@ -30,22 +30,37 @@ const hours = () => {
 
   const openSlots = randomInt(4);
   if (openSlots < 3) {
-    return `${firstOpenTimes(randomInt(5))}-${firstCloseTimes(randomInt(5))}`;
+    return `${firstOpenTimes[randomInt(5)]}-${firstCloseTimes[randomInt(5)]}`;
   }
-  return `${firstOpenTimes(randomInt(5))}-${secondCloseTimes(randomInt(5))}-${secondOpenTimes(randomInt(5))}-${firstCloseTimes(randomInt(5))}`;
+  return `${firstOpenTimes[randomInt(5)]}-${secondCloseTimes[randomInt(5)]}-${secondOpenTimes[randomInt(5)]}-${firstCloseTimes[randomInt(5)]}`;
+};
+
+const timeConvert = (num) => {
+  if (num % 100 === 30) {
+    const newNum = num + 20;
+    return newNum;
+  }
+  return num;
 };
 
 const reservationTime = (businessHours, day) => {
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const dayHours = businessHours[days[day]].split('-');
   let window;
+  let time;
   const firstOrSecond = randomInt(2);
   if (dayHours.length === 2 || firstOrSecond === 0) {
-    window = (Number(dayHours[1]) - Number(dayHours[0])) / 100 * 2;
-    return Number(dayHours[0]) + randomInt(window) * 30;
+    window = (timeConvert(Number(dayHours[1])) - timeConvert(Number(dayHours[0]))) / 100 * 2;
+    time = Number(dayHours[0]) + randomInt(window) * 50;
+  } else {
+    window = (timeConvert(Number(dayHours[3])) - timeConvert(Number(dayHours[2]))) / 100 * 2;
+    time = Number(dayHours[0]) + randomInt(window) * 50;
   }
-  window = (Number(dayHours[3]) - Number(dayHours[2])) / 100 * 2;
-  return Number(dayHours[0]) + randomInt(window) * 30;
+
+  if (time % 100 !== 0 && time % 100 !== 30) {
+    return Math.floor(time / 100) * 100;
+  }
+  return time;
 };
 
 const returnDate = (date, x) => {
@@ -64,7 +79,7 @@ const returnDate = (date, x) => {
   return new Date(year, month, day);
 };
 
-const formattedDate = date => `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
+const formatDate = date => `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
 
 const populateReservations = (allowRes, daysInAdv, businessHours, reservationsPerSlot) => {
   const results = {};
@@ -72,13 +87,19 @@ const populateReservations = (allowRes, daysInAdv, businessHours, reservationsPe
     return results;
   }
   const date = new Date();
-  const day = date.getDate();
+
   let daysOut = 0;
 
   while (daysOut < daysInAdv) {
-    const time = reservationTime(businessHours, returnDate(day, daysOut).getDay());
+    const resDate = returnDate(date, daysOut);
+    const time = reservationTime(businessHours, resDate.getDay());
     const reservations = randomInt(reservationsPerSlot);
-    results[formattedDate][time] = reservations;
+    if (results[formatDate(resDate)]) {
+      results[formatDate(resDate)][time.toString()] = reservations;
+    } else {
+      results[formatDate(resDate)] = {};
+      results[formatDate(resDate)][time] = reservations;
+    }
     daysOut += 1;
   }
 
@@ -100,8 +121,8 @@ names.forEach((business) => {
     Saturday: hours(),
   };
   const entry = {
-    business_id: business[0],
-    business_name: business[1],
+    business_id: business.id,
+    business_name: business.name,
     allow_reservations: allowRes,
     days_in_advance: daysInAdv,
     reservations_per_time: resPerSlot,
@@ -113,4 +134,4 @@ names.forEach((business) => {
   // add entries to database
 });
 
-save(entries);
+seed(entries);

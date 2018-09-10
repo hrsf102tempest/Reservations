@@ -9,8 +9,15 @@ const dbName = 'reservations';
 mongoose.connect(`${url}/${dbName}`);
 
 const businessSchema = mongoose.Schema({
-  id: { type: Number, unique: true, require: true },
-  name: { type: String, require: true },
+  business_id: {
+    type: Number,
+    unique: true,
+    require: true,
+  },
+  business_name: {
+    type: String,
+    require: true,
+  },
   allow_reservations: Boolean,
   people_per_reservation: Number,
   days_in_advance: Number,
@@ -24,26 +31,39 @@ const businessSchema = mongoose.Schema({
     Friday: String,
     Saturday: String,
   },
-  current_reservations: { },
+  current_reservations: mongoose.Schema.Types.Mixed,
 });
 
 const Restaurants = mongoose.model('Restaurants', businessSchema);
 
 // need to create data with a save function
 
-const save = (array) => {
+const seed = (array) => {
+  Restaurants.collection.drop();
   array.forEach((entry) => {
+    // console.log(entry, 'end');
     const business = new Restaurants(entry);
-    business.save((err, document) => {
-      if (err) {
-        console.error(err);
+    business.save((error, document) => {
+      if (error) {
+        console.error('error');
       } else {
         console.log(document, 'Has Been Saved!');
       }
     });
   });
 };
-// findOneAndUpdate when a new resevation is added
+// findOneAndUpdate when a new reservation is added
   // this will be the object updated locally and passed in to be fully updated
 
-export default save;
+const addRes = (obj) => {
+  const business = new Restaurants(obj);
+  Restaurants.findOneAndUpdate({ id: obj.id }, business, (err, document) => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(document, 'Was updated!');
+    }
+  });
+};
+
+module.exports = { seed, addRes };
