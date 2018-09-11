@@ -36,7 +36,7 @@ const businessSchema = mongoose.Schema({
 
 const Restaurants = mongoose.model('Restaurants', businessSchema);
 
-// need to create data with a save function
+// need to create data with a seed function
 
 const seed = (array) => {
   Restaurants.collection.drop();
