@@ -2,7 +2,9 @@ import React from 'react';
 
 class Reservations extends React.Component {
   constructor(props) {
-    super(props),
+    super(props);
+    this.state = {
+    };
   }
 
   render() {
@@ -22,7 +24,7 @@ class Reservations extends React.Component {
           <h1>This area is for the findTable block</h1>
         </div>
       </div>
-    )
+    );
   }
 }
 
