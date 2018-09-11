@@ -37,7 +37,7 @@ test('Allow Reservations should be true when value is 2', () => {
 });
 
 test('Allow Reservations should be false when value is 4', () => {
-  expect(typeof generator.allowReservations()).toBe(false);
+  expect(generator.allowReservations()).toBe(false);
 });
 
 // test day's in advance
@@ -67,12 +67,13 @@ for (let i = 0; i < 7; i += 1) {
 
 // test return date
 test('return date should return a date', () => {
-  expect(JSON.stringify(generator.returnDate(new Date('september 17, 2018', 5)))).toBe('"2018-09-22T07:00:00.000Z"');
+  const date = generator.returnDate(new Date('September 17, 2018'), 5);
+  expect(JSON.stringify(date)).toBe('"2018-09-22T07:00:00.000Z"');
 });
 
 // test formatDate
 test('format date should return a formatted string', () => {
-  expect(typeof generator.formatDate(new Date('september 17, 2018'))).toBe('2018-09-17');
+  expect(generator.formatDate(new Date('september 17, 2018'))).toBe('2018-8-17');
 });
 
 // test populate reservations
@@ -99,6 +100,7 @@ test('entries should have 150 object elements', () => {
   expect(generator.entries.length).toBe(150);
   expect(generator.entries.every(ele => typeof ele === 'object')).toBe(true);
 });
+
 const isEmptyObject = (obj) => {
   const keys = Object.keys(obj);
   return keys.length === 0;
@@ -107,8 +109,8 @@ const isEmptyObject = (obj) => {
 test('all elements where "allows_reservations" is false should have an empty object for current_res', () => {
   expect(generator.entries.every((ele) => {
     if (!ele.allow_reservations) {
-      return isEmptyObject(ele);
+      return isEmptyObject(ele.current_reservations);
     }
     return true;
-  })).toBe(150);
+  })).toBe(true);
 });
