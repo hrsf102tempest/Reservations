@@ -1,5 +1,4 @@
 const names = require('./businessNames.js');
-const { seed } = require('./app');
 
 const randomInt = (max, min = 0) => (
   Math.floor(Math.random() * (max - min)) + min
@@ -134,4 +133,16 @@ names.forEach((business) => {
   // add entries to database
 });
 
-seed(entries);
+module.exports = {
+  randomInt,
+  allowReservations,
+  daysInAdvance,
+  reservationsPerTime,
+  hours,
+  timeConvert,
+  reservationTime,
+  returnDate,
+  formatDate,
+  populateReservations,
+  entries,
+};
