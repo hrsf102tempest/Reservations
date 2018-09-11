@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery';
 import TimeSlots from './reservation-pieces/timeSlots.jsx';
 import PeoplePerRes from './reservation-pieces/peoplePerRes.jsx';
 import FindTable from './reservation-pieces/findTable.jsx';
@@ -9,8 +10,30 @@ class Reservations extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      business: {
+      },
     };
   }
+
+  componentDidMount() {
+    // const { business } = this.state;
+    // const { id } = business;
+    // console.log(id);
+    this.fetch(5);
+  }
+
+  fetch(id) {
+    $.ajax({
+      url: `http://localhost:3001/businesses/${id}`,
+      success: (response) => {
+        console.log(response);
+        this.setState({
+          business: response,
+        });
+      },
+    });
+  }
+
 
   render() {
     return (
