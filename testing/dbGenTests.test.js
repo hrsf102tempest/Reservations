@@ -68,7 +68,7 @@ for (let i = 0; i < 7; i += 1) {
 // test return date
 test('return date should return a date', () => {
   const date = generator.returnDate(new Date('September 17, 2018'), 5);
-  expect(JSON.stringify(date)).toBe('"2018-09-22T07:00:00.000Z"');
+  expect(date instanceof Date).toBe(true);
 });
 
 // test formatDate
