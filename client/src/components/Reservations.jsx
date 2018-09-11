@@ -4,6 +4,9 @@ import TimeSlots from './reservation-pieces/timeSlots.jsx';
 import PeoplePerRes from './reservation-pieces/peoplePerRes.jsx';
 import FindTable from './reservation-pieces/findTable.jsx';
 import Calendar from './reservation-pieces/calendar.jsx';
+import { connect } from 'react-redux';
+import changeBusiness from '../actions/ReservationsAction';
+// import store from '../store/store';
 
 
 class Reservations extends React.Component {
@@ -11,14 +14,12 @@ class Reservations extends React.Component {
     super(props);
     this.state = {
       business: {
-      },
-    };
+        business_name: 'test'
+      }
+    }
   }
 
   componentDidMount() {
-    // const { business } = this.state;
-    // const { id } = business;
-    // console.log(id);
     this.fetch(5);
   }
 
@@ -26,19 +27,24 @@ class Reservations extends React.Component {
     $.ajax({
       url: `http://localhost:3001/businesses/${id}`,
       success: (response) => {
-        console.log(response);
-        this.setState({
-          business: response,
-        });
+        // console.log(response);
+        // console.log(this.state);
+        this.props.newBusinessSelected(response[0]);
+        // store.dispatch(changeBusiness(response[0]));
       },
     });
   }
 
 
   render() {
+    // console.log(this.props.business.business_name)
     return (
       <div>
         <h2>Make a Reservation</h2>
+        <h5>
+          Current Business is -
+          { this.props.business === null ? null : this.props.business.business_name }
+        </h5>
         <div id="Calendar">
           <Calendar />
         </div>

@@ -1,13 +1,24 @@
-import React from 'react';
+// import React from 'react';
 import { connect } from 'react-redux';
 import Reservations from '../../components/Reservations.jsx';
-// import ACTION from '../../actions/Reservations';
+import changeBusiness from '../../actions/ReservationsAction';
 
-const mapDispatchToProps = (dispatch) => ({
-  // code here for dispatch
-});
 
-const mapStateToProps = (state) => { name: state.nameFromState };
+const mapDispatchToProps = (dispatch) => {
+  const obj = {
+    newBusinessSelected: (business) => {
+      dispatch(changeBusiness(business));
+    },
+  };
+  return obj;
+};
+
+const mapStateToProps = (state) => {
+  console.log('state',state);
+  return {
+    business: state.ReservationsReducer
+  };
+};
 
 const ReservationsContainer = connect(
   mapStateToProps,
