@@ -4,8 +4,8 @@ const randomInt = (max, min = 0) => (
   Math.floor(Math.random() * (max - min)) + min
 );
 
-const allowReservations = () => {
-  const rand = randomInt(5);
+const allowReservations = (rand) => {
+  // const rand = randomInt(5);
   if (rand < 3) {
     return true;
   }
@@ -107,7 +107,7 @@ const populateReservations = (allowRes, daysInAdv, businessHours, reservationsPe
 
 const entries = [];
 names.forEach((business) => {
-  const allowRes = allowReservations();
+  const allowRes = allowReservations(randomInt(5));
   const daysInAdv = allowRes === true ? daysInAdvance() : 0;
   const resPerSlot = allowRes === true ? reservationsPerTime() : 0;
   const businessHours = {
