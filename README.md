@@ -1,4 +1,4 @@
-# Project Name
+# Yelpest
 
 > Project description
 Focusing work on the reservation widget, allowing a user to select a day, see what times are available, how many people can be in the group, and allow the user to request a table. 
