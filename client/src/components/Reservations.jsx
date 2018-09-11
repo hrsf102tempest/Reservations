@@ -1,4 +1,9 @@
 import React from 'react';
+import TimeSlots from './reservation-pieces/timeSlots.jsx';
+import PeoplePerRes from './reservation-pieces/peoplePerRes.jsx';
+import FindTable from './reservation-pieces/findTable.jsx';
+import Calendar from './reservation-pieces/calendar.jsx';
+
 
 class Reservations extends React.Component {
   constructor(props) {
@@ -12,16 +17,16 @@ class Reservations extends React.Component {
       <div>
         <h2>Make a Reservation</h2>
         <div id="Calendar">
-          <h1>This area is for the calendar block</h1>
+          <Calendar />
         </div>
         <div id="timeSlots">
-          <h1>This area is for the timeSlots block</h1>
+          <TimeSlots />
         </div>
         <div id="peoplePerRes">
-          <h1>This area is for the peoplePerRes block</h1>
+          <PeoplePerRes />
         </div>
         <div id="findTable">
-          <h1>This area is for the findTable block</h1>
+          <FindTable />
         </div>
       </div>
     );
