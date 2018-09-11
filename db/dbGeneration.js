@@ -45,15 +45,15 @@ const timeConvert = (num) => {
 const reservationTime = (businessHours, day) => {
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const dayHours = businessHours[days[day]].split('-');
-  let window;
+  let timeFrame;
   let time;
   const firstOrSecond = randomInt(2);
   if (dayHours.length === 2 || firstOrSecond === 0) {
-    window = (timeConvert(Number(dayHours[1])) - timeConvert(Number(dayHours[0]))) / 100 * 2;
-    time = Number(dayHours[0]) + randomInt(window) * 50;
+    timeFrame = (timeConvert(Number(dayHours[1])) - timeConvert(Number(dayHours[0]))) / 100 * 2;
+    time = Number(dayHours[0]) + randomInt(timeFrame) * 50;
   } else {
-    window = (timeConvert(Number(dayHours[3])) - timeConvert(Number(dayHours[2]))) / 100 * 2;
-    time = Number(dayHours[0]) + randomInt(window) * 50;
+    timeFrame = (timeConvert(Number(dayHours[3])) - timeConvert(Number(dayHours[2]))) / 100 * 2;
+    time = Number(dayHours[0]) + randomInt(timeFrame) * 50;
   }
 
   if (time % 100 !== 0 && time % 100 !== 30) {
