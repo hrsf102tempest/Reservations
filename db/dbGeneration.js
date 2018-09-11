@@ -4,8 +4,8 @@ const randomInt = (max, min = 0) => (
   Math.floor(Math.random() * (max - min)) + min
 );
 
-const allowReservations = () => {
-  const rand = randomInt(5);
+const allowReservations = (rand) => {
+  // const rand = randomInt(5);
   if (rand < 3) {
     return true;
   }
@@ -45,15 +45,15 @@ const timeConvert = (num) => {
 const reservationTime = (businessHours, day) => {
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const dayHours = businessHours[days[day]].split('-');
-  let window;
+  let timeFrame;
   let time;
   const firstOrSecond = randomInt(2);
   if (dayHours.length === 2 || firstOrSecond === 0) {
-    window = (timeConvert(Number(dayHours[1])) - timeConvert(Number(dayHours[0]))) / 100 * 2;
-    time = Number(dayHours[0]) + randomInt(window) * 50;
+    timeFrame = (timeConvert(Number(dayHours[1])) - timeConvert(Number(dayHours[0]))) / 100 * 2;
+    time = Number(dayHours[0]) + randomInt(timeFrame) * 50;
   } else {
-    window = (timeConvert(Number(dayHours[3])) - timeConvert(Number(dayHours[2]))) / 100 * 2;
-    time = Number(dayHours[0]) + randomInt(window) * 50;
+    timeFrame = (timeConvert(Number(dayHours[3])) - timeConvert(Number(dayHours[2]))) / 100 * 2;
+    time = Number(dayHours[0]) + randomInt(timeFrame) * 50;
   }
 
   if (time % 100 !== 0 && time % 100 !== 30) {
@@ -107,7 +107,7 @@ const populateReservations = (allowRes, daysInAdv, businessHours, reservationsPe
 
 const entries = [];
 names.forEach((business) => {
-  const allowRes = allowReservations();
+  const allowRes = allowReservations(randomInt(5));
   const daysInAdv = allowRes === true ? daysInAdvance() : 0;
   const resPerSlot = allowRes === true ? reservationsPerTime() : 0;
   const businessHours = {
