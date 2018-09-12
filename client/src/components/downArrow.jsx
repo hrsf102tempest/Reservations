@@ -8,7 +8,9 @@ const Down = (size) => {
   height: ${size}px;
   width: auto;
   margin: 10px 10px 0px 0px;
+  position: relative;
   float: right;
+  z-index: 1
 `;
 
   return (

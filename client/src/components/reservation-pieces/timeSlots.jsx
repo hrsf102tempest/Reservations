@@ -10,13 +10,14 @@ const StyledClock = styled.img`
   opacity: 0.6;
   display: inline-block;
   padding: 5px 5px 0px 5px;
+  position: absolute;
 `;
 
 const StyledTimes = styled.div`
   width: 135px;
   height: 30px;
-  border: 1px solid black;
-  border-radius: 5px;
+  // border: 1px solid black;
+  // border-radius: 5px;
   margin: 2px 1px 2px 9px;
   display: inline-block;
 `;
@@ -31,8 +32,17 @@ const StyledText = styled.p`
   bottom: 3px;
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled.select`
+  -webkit-appearance: none;
   display: inline-block;
+  padding: 8px 42px;
+  z-index: -1;
+`;
+
+const DownWrapper = styled.div`
+  display: inline-block;
+  position: absolute;
+  width: 0px;
 `;
 
 class TimeSlots extends React.Component {
@@ -60,8 +70,7 @@ class TimeSlots extends React.Component {
     return result;
   }
 
-  formatTime() {
-    const timeTwentyFour = this.initialTime();
+  formatTime(timeTwentyFour = this.initialTime()) {
     let hours = Math.floor(timeTwentyFour / 100);
     let minutes = timeTwentyFour % 100;
     let amPm;
@@ -73,31 +82,79 @@ class TimeSlots extends React.Component {
     } else {
       amPm = 'am';
     }
-    if (minutes % 10 === 0) {
-      minutes += '0';
+    if (minutes < 10) {
+      minutes = `0${minutes}`;
     }
     return `${hours}:${minutes} ${amPm}`;
   }
 
+  availableTimes() {
+    const timesArray = [];
+    const convert30to50 = (str) => {
+      if (Number(str) % 100 === 30) {
+        return Number(str) + 20;
+      }
+      return Number(str);
+    };
+
+    const convert50to30 = (str) => {
+      if (Number(str) % 100 === 50) {
+        return Number(str) - 20;
+      }
+      return Number(str);
+    };
+
+    const timesForWindow = (arr) => {
+      const open = convert30to50(arr[0]);
+      const close = convert30to50(arr[1]);
+      const slots = (close - open) / 50;
+
+      for (let i = 0; i < slots - 2; i += 1) {
+        const timeSlot = (open + (i * 50));
+        timesArray.push(convert50to30(timeSlot));
+      }
+    };
+
+    const openClose = this.todaysHours().split('-');
+
+    timesForWindow(openClose.slice(0, 2));
+    if (openClose.length > 2) {
+      timesForWindow(openClose.slice(2));
+    }
+
+    const formattedTimes = timesArray.map(time => this.formatTime(time));
+    return formattedTimes;
+  }
+
+  makeOptions() {
+    const array = this.availableTimes();
+    const options = array.map((timeString) => {
+      return (
+        <option>
+          {timeString}
+        </option>
+      );
+    });
+
+    return options;
+  }
+
   render() {
-    console.log('TimeSlots : ', this.props);
     return (
-      <Wrapper>
-        <StyledTimes>
-          <span>
-            <StyledClock src={clockImg} />
-          </span>
-          <StyledText>
-            {this.formatTime()}
-          </StyledText>
-          <span>
-            { Down(10) }
-          </span>
-        </StyledTimes>
-      </Wrapper>
+      <StyledTimes>
+        <span>
+          <StyledClock src={clockImg} />
+        </span>
+        <Wrapper>
+          { this.makeOptions() }
+        </Wrapper>
+        <DownWrapper>
+          {Down(10)}
+        </DownWrapper>
+      </StyledTimes>
     );
   }
-};
+}
 
 
 export default TimeSlots;
