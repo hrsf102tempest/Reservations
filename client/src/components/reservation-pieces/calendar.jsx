@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import Cal from '../calendarIcon.jsx';
 import Down from '../downArrow.jsx';
 
-// const arrow = 'https://image.flaticon.com/icons/svg/60/60995.svg';
-
 const StyledCal = styled.span`
   height: 16px;
   width: auto;
@@ -34,14 +32,6 @@ const StyledDate = styled.p`
   bottom: 3px;
   right: 16px;
 `;
-
-// const StyledArrow = styled.img`
-//   height: 14px;
-//   width: auto;
-//   margin: 0 0 2px -4px;
-//   position: relative;
-//   top: 2px;
-// `;
 
 class Calendar extends React.Component {
   date(num = 0) {
