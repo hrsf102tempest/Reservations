@@ -1,12 +1,9 @@
 import React from 'react';
 import $ from 'jquery';
-import TimeSlots from './reservation-pieces/timeSlots.jsx';
-import PeoplePerRes from './reservation-pieces/peoplePerRes.jsx';
-import FindTable from './reservation-pieces/findTable.jsx';
-import Calendar from './reservation-pieces/calendar.jsx';
-import { connect } from 'react-redux';
-import changeBusiness from '../actions/ReservationsAction';
-// import store from '../store/store';
+import TimeSlotsContainer from '../containers/reservations/TimeSlotsContainer';
+import PeoplePerResContainer from '../containers/reservations/PeoplePerResContainer';
+import FindTableContainer from '../containers/reservations/FindTableContainer';
+import CalendarContainer from '../containers/reservations/CalendarContainer';
 
 
 class Reservations extends React.Component {
@@ -27,10 +24,7 @@ class Reservations extends React.Component {
     $.ajax({
       url: `http://localhost:3001/businesses/${id}`,
       success: (response) => {
-        // console.log(response);
-        // console.log(this.state);
         this.props.newBusinessSelected(response[0]);
-        // store.dispatch(changeBusiness(response[0]));
       },
     });
   }
@@ -46,16 +40,16 @@ class Reservations extends React.Component {
           { this.props.business === null ? null : this.props.business.business_name }
         </h5>
         <div id="Calendar">
-          <Calendar />
+          <CalendarContainer />
         </div>
         <div id="timeSlots">
-          <TimeSlots />
+          <TimeSlotsContainer />
         </div>
         <div id="peoplePerRes">
-          <PeoplePerRes />
+          <PeoplePerResContainer />
         </div>
         <div id="findTable">
-          <FindTable />
+          <FindTableContainer />
         </div>
       </div>
     );
