@@ -6,7 +6,7 @@ const url = 'mongodb://localhost:27017';
 
 const dbName = 'reservations';
 
-mongoose.connect(`${url}/${dbName}`);
+mongoose.connect(`${url}/${dbName}`, { useNewUrlParser: true });
 
 const businessSchema = mongoose.Schema({
   business_id: {
@@ -66,4 +66,15 @@ const addRes = (obj) => {
   });
 };
 
-module.exports = { seed, addRes };
+// getData will grab one restaruant's document to return to the server
+const getData = (num, callback) => {
+  Restaurants.find({ business_id: num }, (err, results) => {
+    if (err) {
+      console.error(err);
+    } else {
+      callback(results);
+    }
+  });
+};
+
+module.exports = { seed, addRes, getData };
