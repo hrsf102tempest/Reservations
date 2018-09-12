@@ -7,9 +7,8 @@ const Down = (size) => {
   const StyledArrow = styled.img`
   height: ${size}px;
   width: auto;
-  margin: 0 0 2px -4px;
-  position: relative;
-  top: 2px;
+  margin: 10px 10px 0px 0px;
+  float: right;
 `;
 
   return (

@@ -56,7 +56,7 @@ class Calendar extends React.Component {
         </span>
         <StyledDate>{ this.date()}</StyledDate>
         <span>
-          { Down(14) }
+          { Down(10) }
         </span>
       </StyledCalendar>
 
