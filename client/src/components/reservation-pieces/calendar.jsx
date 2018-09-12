@@ -33,6 +33,13 @@ const StyledDate = styled.p`
   right: 16px;
 `;
 
+const StyledDown = styled.div`
+  display: inline-block;
+  width: 20px;
+  position: relative;
+  bottom: 5px;
+`;
+
 class Calendar extends React.Component {
   date(num = 0) {
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -55,9 +62,9 @@ class Calendar extends React.Component {
           </StyledCal>
         </span>
         <StyledDate>{ this.date()}</StyledDate>
-        <span>
+        <StyledDown>
           { Down(10) }
-        </span>
+        </StyledDown>
       </StyledCalendar>
 
     );
