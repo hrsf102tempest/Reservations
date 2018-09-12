@@ -5,7 +5,7 @@ const StyledFind = styled.h4`
   width: 275px;
   height: 30px;
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 5px;
   margin: 2px 1px 2px 9px;
 `;
 

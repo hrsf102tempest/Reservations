@@ -6,8 +6,17 @@ import PeoplePerResContainer from '../containers/reservations/PeoplePerResContai
 import FindTableContainer from '../containers/reservations/FindTableContainer';
 import CalendarContainer from '../containers/reservations/CalendarContainer';
 
-const Title = styled.h2`
+const img = 'https://visualpharm.com/assets/805/Event-595b40b85ba036ed117dc50f.svg';
+
+const Title = styled.p`
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 21px;
   margin: 0;
+  display: inline-block;
+  position: relative;
+  bottom: 4px;
 `;
 
 const Wrapper = styled.section`
@@ -16,7 +25,7 @@ const Wrapper = styled.section`
   border: 1px solid black;
   border-radius: 10px;
   margin: 3px 7px;
-  text-align: right;
+  text-align: left;
   padding: 5px 15px 5px 0;
 `;
 
@@ -27,15 +36,14 @@ const ResBox = styled.div`
   border-radius: 10px;
 `;
 
+const StyledCal = styled.img`
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  margin: 0 12px;
+`;
+
 class Reservations extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      business: {
-        business_name: 'test',
-      }
-    }
-  }
 
   componentDidMount() {
     this.fetch(5);
@@ -52,10 +60,10 @@ class Reservations extends React.Component {
 
 
   render() {
-    // console.log(this.props.business.business_name)
     return (
       <ResBox>
         <Wrapper>
+          <StyledCal src={img}/>
           <Title>Make a Reservation</Title>
         </Wrapper>
         <CalendarContainer />

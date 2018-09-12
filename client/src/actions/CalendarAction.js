@@ -1,9 +1,9 @@
-const changeMonth = (monthNumber) => {
+const changeDate = (date) => {
   const action = {
-    type: 'NEW_Month',
-    month: monthNumber,
+    type: 'NEW_DATE',
+    month: date,
   };
   return action;
 };
 
-export default changeMonth;
+export default changeDate;
