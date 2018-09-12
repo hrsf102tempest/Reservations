@@ -5,11 +5,10 @@ import TimeSlotsContainer from '../containers/reservations/TimeSlotsContainer';
 import PeoplePerResContainer from '../containers/reservations/PeoplePerResContainer';
 import FindTableContainer from '../containers/reservations/FindTableContainer';
 import CalendarContainer from '../containers/reservations/CalendarContainer';
-
-const img = 'https://visualpharm.com/assets/805/Event-595b40b85ba036ed117dc50f.svg';
+// import BigCal from './calendarIcon.jsx';
+import Cal from './calendarIcon.jsx';
 
 const Title = styled.p`
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 21px;
@@ -22,29 +21,22 @@ const Title = styled.p`
 const Wrapper = styled.section`
   height: 25px;
   width: 265px;
-  border: 1px solid black;
-  border-radius: 10px;
-  margin: 3px 7px;
+  // border: 1px solid black;
+  // border-radius: 10px;
+  margin: 3px 0px;
   text-align: left;
   padding: 5px 15px 5px 0;
 `;
 
 const ResBox = styled.div`
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   height: 164px;
   width: 298px;
   border: 1px solid black;
   border-radius: 10px;
 `;
 
-const StyledCal = styled.img`
-  display: inline-block;
-  height: 24px;
-  width: 24px;
-  margin: 0 12px;
-`;
-
 class Reservations extends React.Component {
-
   componentDidMount() {
     this.fetch(5);
   }
@@ -53,7 +45,8 @@ class Reservations extends React.Component {
     $.ajax({
       url: `http://localhost:3001/businesses/${id}`,
       success: (response) => {
-        this.props.newBusinessSelected(response[0]);
+        const { newBusinessSelected } = this.props;
+        newBusinessSelected(response[0]);
       },
     });
   }
@@ -63,7 +56,7 @@ class Reservations extends React.Component {
     return (
       <ResBox>
         <Wrapper>
-          <StyledCal src={img}/>
+          { Cal(24) }
           <Title>Make a Reservation</Title>
         </Wrapper>
         <CalendarContainer />
