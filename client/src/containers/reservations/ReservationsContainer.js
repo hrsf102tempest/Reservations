@@ -14,10 +14,10 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log('state',state);
-  return {
-    business: state.ReservationsReducer
+  const props = {
+    business: state.ReservationsReducer,
   };
+  return props;
 };
 
 const ReservationsContainer = connect(

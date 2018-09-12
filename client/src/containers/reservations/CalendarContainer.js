@@ -1,13 +1,22 @@
 import { connect } from 'react-redux';
 import Calendar from '../../components/reservation-pieces/calendar.jsx';
-// import ACTION from '../../actions/TimeSlots';
+import changeMonth from '../../actions/CalendarAction';
 
-const mapDispatchToProps = (dispatch) => ({
-  // code here for dispatch
-});
+const mapDispatchToProps = (dispatch) => {
+  const obj = {
+    newMonth: (month) => {
+      dispatch(changeMonth(month));
+    },
+  };
+  return obj;
+};
 
 const mapStateToProps = (state) => {
-  name: state.nameFromState
+  const props = {
+    month: state.month,
+    year: state.year,
+  };
+  return props;
 };
 
 const CalendarContainer = connect(
