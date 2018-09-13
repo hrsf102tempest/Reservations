@@ -31,6 +31,8 @@ const Wrapper = styled.select`
   z-index: 0;
 `;
 
+Wrapper.displayName = 'SelectWrapper';
+
 const DownWrapper = styled.div`
   display: inline-block;
   position: absolute;
@@ -42,7 +44,7 @@ class TimeSlots extends React.Component {
   todaysHours() {
     const { date } = this.props;
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const day = date === undefined ? 1 : days[date.getDay()];
+    const day = date === undefined ? 0 : days[date.getDay()];
     const { hours } = this.props;
     if (hours) {
       return hours[day];

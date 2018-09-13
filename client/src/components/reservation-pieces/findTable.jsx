@@ -14,6 +14,8 @@ const StyledFind = styled.button`
   box-shadow: 0 1px 1px rgba(0,0,0,0.3)
 `;
 
+StyledFind.displayName = 'StyledFind';
+
 const Wrapper = styled.div`
   display: inline-block;
 `;

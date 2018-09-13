@@ -29,6 +29,8 @@ const Wrapper = styled.section`
   padding: 5px 15px 5px 0;
 `;
 
+Wrapper.displayName = 'ResWrapper';
+
 const ResBox = styled.div`
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   height: 164px;
@@ -37,10 +39,14 @@ const ResBox = styled.div`
   border-radius: 10px;
 `;
 
+ResBox.displayName = 'ResBox';
+
 const CalWrapper = styled.div`
   display: inline-block;
   margin: 0px 12px;
 `;
+
+CalWrapper.displayName = 'CalWrapper';
 
 class Reservations extends React.Component {
   componentDidMount() {
