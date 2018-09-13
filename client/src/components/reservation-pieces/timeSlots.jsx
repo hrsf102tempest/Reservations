@@ -38,7 +38,7 @@ const Wrapper = styled.select`
   display: inline-block;
   padding: 8px 42px;
   background-color: rgba(0, 0, 0, 0);
-  z-index: 2;
+  z-index: 0;
 `;
 
 const DownWrapper = styled.div`

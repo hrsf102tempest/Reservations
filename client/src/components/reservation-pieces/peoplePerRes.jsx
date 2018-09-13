@@ -19,7 +19,7 @@ const SelectWrapper = styled.select`
   -webkit-appearance: none;
   display: inline-block;
   padding: 8px 45px;
-  z-index: 2;
+  z-index: 0;
   background-color: rgba(0, 0, 0, 0);
 `;
 
