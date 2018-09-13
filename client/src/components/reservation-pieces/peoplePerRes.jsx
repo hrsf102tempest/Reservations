@@ -3,14 +3,6 @@ import styled from 'styled-components';
 import icon from '../../../../icon.png';
 import Down from '../downArrow.jsx';
 
-const StyledPeoplePer = styled.h4`
-  width: 140px;
-  height: 30px;
-  border: 1px solid black;
-  border-radius: 10px;
-  margin: 2px 4px 2px 1px;
-`;
-
 const Wrapper = styled.div`
   display: inline-block;
 `;

@@ -19,7 +19,6 @@ const Wrapper = styled.div`
 `;
 
 const FindTable = (props) => {
-
   return (
     <Wrapper>
       <StyledFind>Find a Table</StyledFind>

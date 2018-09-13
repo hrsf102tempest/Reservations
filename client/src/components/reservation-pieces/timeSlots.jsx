@@ -23,16 +23,6 @@ const StyledTimes = styled.div`
   display: inline-block;
 `;
 
-const StyledText = styled.p`
-  font-size: 14px;
-  font-weight: 400;
-  display: inline-block;
-  padding: 0px 5px 0px 15px;
-  line-height: 0px;
-  position: relative;
-  bottom: 3px;
-`;
-
 const Wrapper = styled.select`
   -webkit-appearance: none;
   display: inline-block;
