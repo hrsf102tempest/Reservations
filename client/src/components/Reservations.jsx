@@ -1,63 +1,80 @@
 import React from 'react';
 import $ from 'jquery';
-import TimeSlots from './reservation-pieces/timeSlots.jsx';
-import PeoplePerRes from './reservation-pieces/peoplePerRes.jsx';
-import FindTable from './reservation-pieces/findTable.jsx';
-import Calendar from './reservation-pieces/calendar.jsx';
-import { connect } from 'react-redux';
-import changeBusiness from '../actions/ReservationsAction';
-// import store from '../store/store';
+import styled from 'styled-components';
+import TimeSlotsContainer from '../containers/reservations/TimeSlotsContainer';
+import PeoplePerResContainer from '../containers/reservations/PeoplePerResContainer';
+import FindTableContainer from '../containers/reservations/FindTableContainer';
+import CalendarContainer from '../containers/reservations/CalendarContainer';
+import Cal from './calendarIcon.jsx';
 
+const Title = styled.p`
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 21px;
+  margin: 0;
+  display: inline-block;
+  position: relative;
+  bottom: 6px;
+`;
+
+const Wrapper = styled.section`
+  height: 25px;
+  width: 265px;
+  // border: 1px solid black;
+  // border-radius: 10px;
+  margin: 10px 0px 5px 0;
+  text-align: left;
+  padding: 5px 15px 5px 0;
+`;
+
+const ResBox = styled.div`
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  height: 164px;
+  width: 298px;
+  border: 1px solid black;
+  border-radius: 10px;
+`;
+
+const CalWrapper = styled.div`
+  display: inline-block;
+  margin: 0px 12px;
+`;
 
 class Reservations extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      business: {
-        business_name: 'test'
-      }
-    }
-  }
-
   componentDidMount() {
-    this.fetch(5);
+    this.fetch(7);
   }
 
   fetch(id) {
     $.ajax({
       url: `http://localhost:3001/businesses/${id}`,
       success: (response) => {
-        // console.log(response);
-        // console.log(this.state);
-        this.props.newBusinessSelected(response[0]);
-        // store.dispatch(changeBusiness(response[0]));
+        const { newBusinessSelected } = this.props;
+        newBusinessSelected(response[0]);
       },
     });
   }
 
 
   render() {
-    // console.log(this.props.business.business_name)
     return (
-      <div>
-        <h2>Make a Reservation</h2>
+      <ResBox>
+        <Wrapper>
+          <CalWrapper>
+            { Cal(24) }
+          </CalWrapper>
+          <Title>Make a Reservation</Title>
+        </Wrapper>
+        <CalendarContainer />
+        <TimeSlotsContainer />
+        <PeoplePerResContainer />
+        <FindTableContainer />
+
         <h5>
-          Current Business is -
-          { this.props.business === null ? null : this.props.business.business_name }
+          - Current Business is -
+          {this.props.business === null ? null : this.props.business.business_name}
         </h5>
-        <div id="Calendar">
-          <Calendar />
-        </div>
-        <div id="timeSlots">
-          <TimeSlots />
-        </div>
-        <div id="peoplePerRes">
-          <PeoplePerRes />
-        </div>
-        <div id="findTable">
-          <FindTable />
-        </div>
-      </div>
+      </ResBox>
     );
   }
 }

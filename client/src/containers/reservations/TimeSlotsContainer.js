@@ -1,13 +1,24 @@
 import { connect } from 'react-redux';
 import TimeSlots from '../../components/reservation-pieces/timeSlots.jsx';
+import changeTime from '../../actions/TimeSlotsAction';
 // import ACTION from '../../actions/TimeSlots';
 
-const mapDispatchToProps = (dispatch) => ({
-  // code here for dispatch
-});
+const mapDispatchToProps = (dispatch) => {
+  const obj = {
+    newTime: (time) => {
+      dispatch(changeTime(time));
+    },
+  };
+  return obj;
+};
 
 const mapStateToProps = (state) => {
-  name: state.nameFromState
+  const props = {
+    date: state.CalendarReducer.date,
+    time: state.TimeSlotsReducer,
+    hours: state.ReservationsReducer === null ? null : state.ReservationsReducer.hours,
+  };
+  return props;
 };
 
 const TimeSlotsContainer = connect(

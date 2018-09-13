@@ -1,4 +1,3 @@
-// import React from 'react';
 import { connect } from 'react-redux';
 import Reservations from '../../components/Reservations.jsx';
 import changeBusiness from '../../actions/ReservationsAction';
@@ -14,10 +13,10 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log('state',state);
-  return {
-    business: state.ReservationsReducer
+  const props = {
+    business: state.ReservationsReducer,
   };
+  return props;
 };
 
 const ReservationsContainer = connect(

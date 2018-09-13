@@ -1,3 +1,4 @@
+
 const ReservationsReducer = (state = null, action) => {
   let newState = {};
 

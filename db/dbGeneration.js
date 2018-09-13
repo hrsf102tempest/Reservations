@@ -110,6 +110,7 @@ names.forEach((business) => {
   const allowRes = allowReservations(randomInt(5));
   const daysInAdv = allowRes === true ? daysInAdvance() : 0;
   const resPerSlot = allowRes === true ? reservationsPerTime() : 0;
+  const peoplePer = allowRes === true ? randomInt(11, 1) : 0;
   const businessHours = {
     Sunday: hours(),
     Monday: hours(),
@@ -125,6 +126,7 @@ names.forEach((business) => {
     allow_reservations: allowRes,
     days_in_advance: daysInAdv,
     reservations_per_time: resPerSlot,
+    people_per_reservation: peoplePer,
     hours: businessHours,
     current_reservations: populateReservations(allowRes, daysInAdv, businessHours, resPerSlot),
   };

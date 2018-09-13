@@ -17,6 +17,14 @@ module.exports = {
       query: {
         presets: ['@babel/preset-react', '@babel/preset-env'],
       },
-    }],
+    },
+    {
+      test: /\.(pdf|jpg|png|gif|svg|ico)$/,
+      use: [{
+        loader: 'url-loader',
+      },
+      ],
+    },
+    ],
   },
 };

@@ -1,8 +1,8 @@
 {
-  "name": "",
+  "name": "Side-Bar",
   "version": "",
   "description": "",
-  "author": "",
+  "author": "Nicholas Martin",
   "license": "",
   "engines": {
     "node": ">=6.13.0"
@@ -31,10 +31,13 @@
     "react-dom": "^16.5.0",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^3.4.6",
+    "url-loader": "^1.1.1"
   },
   "devDependencies": {
     "babel-jest": "^23.6.0",
+    "babel-plugin-styled-components": "^1.7.1",
     "enzyme": "^3.6.0",
     "eslint": "^5.5.0",
     "eslint-config-airbnb": "^17.1.0",
