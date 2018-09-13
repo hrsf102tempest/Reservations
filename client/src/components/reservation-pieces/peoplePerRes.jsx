@@ -18,9 +18,9 @@ const Wrapper = styled.div`
 const SelectWrapper = styled.select`
   -webkit-appearance: none;
   display: inline-block;
-  padding: 8px 42px;
-  z-index: -1;
-  background-color: white;
+  padding: 8px 45px;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0);
 `;
 
 const StyledIcon = styled.img`
@@ -29,12 +29,14 @@ const StyledIcon = styled.img`
   display: inline-block;
   padding: 5px 5px 0px 5px;
   position: absolute;
+  z-index: -1;
 `;
 
 const DownWrapper = styled.div`
   display: inline-block;
   position: absolute;
   width: 0px;
+  z-index: -1;
 `;
 
 const PeoplePerRes = (props) => {
@@ -68,7 +70,7 @@ const PeoplePerRes = (props) => {
         { options }
       </SelectWrapper>
       <DownWrapper>
-        { Down(10) }
+        { Down(7) }
       </DownWrapper>
 
     </Wrapper>

@@ -7,18 +7,20 @@ const StyledCal = styled.span`
   height: 16px;
   width: auto;
   opacity: 0.6;
+  margin: 0px 12px;
   position: relative;
-  right: 10px;
+  right: 7px;
 `;
 
-const StyledCalendar = styled.div`
+const StyledCalendar = styled.button`
+  -webkit-appearance: none;
   width: 275px;
-  height: 22px;
+  height: 26px;
   border: 1px solid black;
   border-radius: 5px;
   text-align: center;
   margin: 7px 9px 0 9px;
-  padding: 5px 1px 0px;
+  padding: 0px;
   position: relative;
   bottom: 5px;
 `;
@@ -37,7 +39,7 @@ const StyledDown = styled.div`
   display: inline-block;
   width: 20px;
   position: relative;
-  bottom: 5px;
+  bottom: 3px;
 `;
 
 class Calendar extends React.Component {
@@ -63,7 +65,7 @@ class Calendar extends React.Component {
         </span>
         <StyledDate>{ this.date()}</StyledDate>
         <StyledDown>
-          { Down(10) }
+          { Down(7) }
         </StyledDown>
       </StyledCalendar>
 

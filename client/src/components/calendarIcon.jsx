@@ -8,7 +8,6 @@ const Cal = (size) => {
   display: inline-block;
   height: ${size}px;
   width: ${size}px;
-  margin: 0 12px;
 `;
 
   return (

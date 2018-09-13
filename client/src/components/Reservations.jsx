@@ -14,7 +14,7 @@ const Title = styled.p`
   margin: 0;
   display: inline-block;
   position: relative;
-  bottom: 4px;
+  bottom: 6px;
 `;
 
 const Wrapper = styled.section`
@@ -22,7 +22,7 @@ const Wrapper = styled.section`
   width: 265px;
   // border: 1px solid black;
   // border-radius: 10px;
-  margin: 3px 0px;
+  margin: 10px 0px 5px 0;
   text-align: left;
   padding: 5px 15px 5px 0;
 `;
@@ -33,6 +33,11 @@ const ResBox = styled.div`
   width: 298px;
   border: 1px solid black;
   border-radius: 10px;
+`;
+
+const CalWrapper = styled.div`
+  display: inline-block;
+  margin: 0px 12px;
 `;
 
 class Reservations extends React.Component {
@@ -55,7 +60,9 @@ class Reservations extends React.Component {
     return (
       <ResBox>
         <Wrapper>
-          { Cal(24) }
+          <CalWrapper>
+            { Cal(24) }
+          </CalWrapper>
           <Title>Make a Reservation</Title>
         </Wrapper>
         <CalendarContainer />

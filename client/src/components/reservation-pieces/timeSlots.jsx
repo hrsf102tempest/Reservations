@@ -11,6 +11,7 @@ const StyledClock = styled.img`
   display: inline-block;
   padding: 5px 5px 0px 5px;
   position: absolute;
+  z-index: -1;
 `;
 
 const StyledTimes = styled.div`
@@ -36,14 +37,15 @@ const Wrapper = styled.select`
   -webkit-appearance: none;
   display: inline-block;
   padding: 8px 42px;
-  z-index: -1;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 2;
 `;
 
 const DownWrapper = styled.div`
   display: inline-block;
   position: absolute;
   width: 0px;
+  z-index: -1;
 `;
 
 class TimeSlots extends React.Component {
@@ -150,7 +152,7 @@ class TimeSlots extends React.Component {
           { this.makeOptions() }
         </Wrapper>
         <DownWrapper>
-          {Down(10)}
+          {Down(7)}
         </DownWrapper>
       </StyledTimes>
     );
