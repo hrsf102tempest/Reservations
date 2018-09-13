@@ -17,6 +17,8 @@ const Title = styled.p`
   bottom: 6px;
 `;
 
+Title.displayName = 'Title';
+
 const Wrapper = styled.section`
   height: 25px;
   width: 265px;
@@ -71,8 +73,7 @@ class Reservations extends React.Component {
         <FindTableContainer />
 
         <h5>
-          - Current Business is -
-          {this.props.business === null ? null : this.props.business.business_name}
+          
         </h5>
       </ResBox>
     );

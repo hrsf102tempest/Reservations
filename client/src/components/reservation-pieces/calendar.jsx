@@ -35,6 +35,8 @@ const StyledDate = styled.p`
   right: 16px;
 `;
 
+StyledDate.displayName = 'StyledDate';
+
 const StyledDown = styled.div`
   display: inline-block;
   width: 20px;
