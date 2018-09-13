@@ -7,7 +7,6 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const mapStateToProps = (state) => {
-  name: state.nameFromState
 };
 
 const FindTableContainer = connect(
