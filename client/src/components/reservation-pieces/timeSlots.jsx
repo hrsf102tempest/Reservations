@@ -14,7 +14,7 @@ const StyledClock = styled.img`
 `;
 
 const StyledTimes = styled.div`
-  width: 135px;
+  width: 140px;
   height: 30px;
   // border: 1px solid black;
   // border-radius: 5px;
@@ -37,6 +37,7 @@ const Wrapper = styled.select`
   display: inline-block;
   padding: 8px 42px;
   z-index: -1;
+  background-color: white;
 `;
 
 const DownWrapper = styled.div`

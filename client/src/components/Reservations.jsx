@@ -5,7 +5,6 @@ import TimeSlotsContainer from '../containers/reservations/TimeSlotsContainer';
 import PeoplePerResContainer from '../containers/reservations/PeoplePerResContainer';
 import FindTableContainer from '../containers/reservations/FindTableContainer';
 import CalendarContainer from '../containers/reservations/CalendarContainer';
-// import BigCal from './calendarIcon.jsx';
 import Cal from './calendarIcon.jsx';
 
 const Title = styled.p`
@@ -38,7 +37,7 @@ const ResBox = styled.div`
 
 class Reservations extends React.Component {
   componentDidMount() {
-    this.fetch(5);
+    this.fetch(7);
   }
 
   fetch(id) {

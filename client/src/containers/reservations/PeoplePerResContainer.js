@@ -7,12 +7,15 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const mapStateToProps = (state) => {
-  name: state.nameFromState
+  const props = {
+    maxPeople: state.ReservationsReducer === null ? null : state.ReservationsReducer.people_per_reservation,
+  };
+  return props;
 };
 
 const PeoplePerResContainer = connect(
   mapStateToProps,
-  mapDispatchToProps,
+  null,
 )(PeoplePerRes);
 
 export default PeoplePerResContainer;

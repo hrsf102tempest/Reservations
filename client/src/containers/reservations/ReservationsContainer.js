@@ -1,4 +1,3 @@
-// import React from 'react';
 import { connect } from 'react-redux';
 import Reservations from '../../components/Reservations.jsx';
 import changeBusiness from '../../actions/ReservationsAction';
