@@ -1,6 +1,6 @@
 const changeTime = (newTime) => {
   const action = {
-    type: 'NEW_Time',
+    type: 'NEW_TIME',
     time: newTime,
   };
   return action;
