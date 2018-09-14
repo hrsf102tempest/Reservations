@@ -5,7 +5,6 @@ const changeMonthYear = (month, year) => {
     month,
     year,
   };
-  console.log(obj);
   return obj;
 };
 

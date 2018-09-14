@@ -7,9 +7,11 @@ const StyledCal = styled.span`
   height: 16px;
   width: auto;
   opacity: 0.6;
-  margin: 0px 12px;
+  margin: 0px 0px;
+  float: left;
   position: relative;
-  right: 7px;
+  left: 5px;
+  top: 0px;
 `;
 
 const StyledCalendar = styled.button`
@@ -23,6 +25,7 @@ const StyledCalendar = styled.button`
   padding: 0px;
   position: relative;
   bottom: 5px;
+  z-index: 0;
 `;
 
 const StyledDate = styled.p`
@@ -32,7 +35,11 @@ const StyledDate = styled.p`
   margin: 0;
   position: relative;
   bottom: 3px;
-  right: 16px;
+  left: 5px;
+  text-align: left;
+  z-index: 1;
+  width: 226px;
+  background-color: rgba(0,0,0,0);
 `;
 
 StyledDate.displayName = 'StyledDate';
@@ -41,13 +48,16 @@ const StyledDown = styled.div`
   display: inline-block;
   width: 20px;
   position: relative;
-  bottom: 3px;
+  bottom: 5px;
+  z-index: 0;
+  float: right;
+  right: 5px;
 `;
 
 class Calendar extends React.Component {
-  date(num = 0) {
+  date() {
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const { date } = this.props;
     const day = days[date.getDay()];
     const month = months[date.getMonth()];
@@ -56,7 +66,7 @@ class Calendar extends React.Component {
   }
 
   render() {
-    console.log(this.props);
+    console.log('cal rendered');
     return (
 
       <StyledCalendar>

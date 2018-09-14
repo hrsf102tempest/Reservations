@@ -12,8 +12,9 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const mapStateToProps = (state) => {
+  console.log('cal reducer', state.CalendarViewReducer.date);
   const props = {
-    date: state.CalendarReducer.date,
+    date: state.CalendarViewReducer.date,
     business: state.ReservationsReducer,
   };
   return props;

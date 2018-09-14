@@ -104,19 +104,26 @@ const StyledView = styled.div`
 `;
 
 const StyledWeek = styled.div`
-  display: inline-block;
+display: inline-block;
 `;
 
 const Days = (props) => {
-  const { month, year, daysOut } = props;
+  const { month, year, daysOut, date, newViewedDate, } = props;
 
-  const divDate = (targetDay) => {
-    const result = new Date(year, month, targetDay);
+  const divDate = (targetDay, targetMonth = month, targetYear = year) => {
+    const result = new Date(targetYear, targetMonth, targetDay);
     return result;
   };
 
-  const farthest = divDate(daysOut);
-  const currentDate = divDate(new Date().getDate());
+  const todaysMonth = new Date().getMonth();
+  const todaysYear = new Date().getFullYear();
+  const farthest = ((dayCount) => {
+    const result = new Date();
+    result.setDate(result.getDate() + dayCount);
+    return result;
+  })(daysOut);
+  const currentDate = divDate(new Date().getDate(), todaysMonth, todaysYear);
+  console.log('currentDate', currentDate);
 
   const calendarMatrix = (monthGiven, yearGiven) => {
     const longMonths = [0, 2, 4, 6, 7, 9, 11];
@@ -163,19 +170,19 @@ const Days = (props) => {
         );
       }
 
-      if (dayDate.getDate() === currentDate.getDate() && dayDate.getMonth() === currentDate.getMonth()) {
+      if (dayDate.getDate() === date.getDate() && dayDate.getMonth() === date.getMonth()) {
         const Current = CurrentDay(index);
         return (
-          <Current>
+          <Current onClick={() => newViewedDate(dayDate)}>
             { day }
           </Current>
         );
       }
 
-      if (dayDate > currentDate && dayDate <= farthest) {
+      if (dayDate >= currentDate && dayDate <= farthest) {
         const Valid = ValidDay(index);
         return (
-          <Valid>
+          <Valid onClick={() => newViewedDate(dayDate)}>
             { day }
           </Valid>
         );

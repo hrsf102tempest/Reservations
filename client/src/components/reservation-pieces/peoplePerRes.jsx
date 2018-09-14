@@ -34,8 +34,6 @@ const DownWrapper = styled.div`
 `;
 
 const PeoplePerRes = (props) => {
-  console.log('PeoplePer', props);
-
   const { maxPeople } = props;
   const optionText = [];
 
