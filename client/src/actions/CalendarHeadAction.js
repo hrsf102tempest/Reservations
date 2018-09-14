@@ -1,12 +1,9 @@
 
-
 const changeMonthYear = (month, year) => {
   const obj = {
     type: 'NEW_MONTH_YEAR',
-    date: {
-      month,
-      year,
-    },
+    month,
+    year,
   };
   console.log(obj);
   return obj;

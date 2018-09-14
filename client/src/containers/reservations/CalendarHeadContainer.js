@@ -14,8 +14,8 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   const props = {
-    month: state.CalendarHeadReducer.date.month,
-    year: state.CalendarHeadReducer.date.year,
+    month: state.CalendarHeadReducer.month,
+    year: state.CalendarHeadReducer.year,
   };
   return props;
 };
