@@ -15,6 +15,8 @@ const SelectWrapper = styled.select`
   background-color: rgba(0, 0, 0, 0);
 `;
 
+SelectWrapper.displayName = 'SelectWrapper';
+
 const StyledIcon = styled.img`
   height: 18px;
   width: auto;
@@ -47,9 +49,9 @@ const PeoplePerRes = (props) => {
     optionText.push(text);
   }
 
-  const options = optionText.map((filler) => {
+  const options = optionText.map((filler, index) => {
     return (
-      <option>
+      <option className={`entry${index}`}>
         { filler }
       </option>
     );

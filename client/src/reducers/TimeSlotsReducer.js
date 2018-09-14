@@ -1,4 +1,4 @@
-const findTime = (date = new Date()) => {
+export const findTime = (date = new Date()) => {
   const time = date.getHours() * 100 + date.getMinutes();
   if (time % 100 > 30) {
     return Math.ceil(time / 100) * 100;
@@ -6,12 +6,12 @@ const findTime = (date = new Date()) => {
   return Math.floor(time / 100) * 100 + 30;
 };
 
-const init = {
+export const init = {
   time: findTime(),
   day: new Date().getDay(),
 };
 
-const TimeSlotsReducer = (state = init, action) => {
+export const TimeSlotsReducer = (state = init, action) => {
   let newState = {};
 
   if (action.type === 'NEW_TIME') {
@@ -23,4 +23,5 @@ const TimeSlotsReducer = (state = init, action) => {
   return newState;
 };
 
-export default TimeSlotsReducer;
+
+export default { TimeSlotsReducer, findTime, init };

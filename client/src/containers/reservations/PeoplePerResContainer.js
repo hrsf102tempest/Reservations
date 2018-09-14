@@ -8,7 +8,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = (state) => {
   const props = {
-    maxPeople: state.ReservationsReducer === null ? null : state.ReservationsReducer.people_per_reservation,
+    maxPeople: state.ReservationsReducer === null ? 0 : state.ReservationsReducer.people_per_reservation,
   };
   return props;
 };

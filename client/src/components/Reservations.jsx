@@ -17,6 +17,8 @@ const Title = styled.p`
   bottom: 6px;
 `;
 
+Title.displayName = 'Title';
+
 const Wrapper = styled.section`
   height: 25px;
   width: 265px;
@@ -27,6 +29,8 @@ const Wrapper = styled.section`
   padding: 5px 15px 5px 0;
 `;
 
+Wrapper.displayName = 'ResWrapper';
+
 const ResBox = styled.div`
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   height: 164px;
@@ -35,10 +39,14 @@ const ResBox = styled.div`
   border-radius: 10px;
 `;
 
+ResBox.displayName = 'ResBox';
+
 const CalWrapper = styled.div`
   display: inline-block;
   margin: 0px 12px;
 `;
+
+CalWrapper.displayName = 'CalWrapper';
 
 class Reservations extends React.Component {
   componentDidMount() {
@@ -71,8 +79,6 @@ class Reservations extends React.Component {
         <FindTableContainer />
 
         <h5>
-          - Current Business is -
-          {this.props.business === null ? null : this.props.business.business_name}
         </h5>
       </ResBox>
     );
