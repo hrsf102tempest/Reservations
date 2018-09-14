@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import CalendarHead from './calendarHead.jsx';
+// import CalendarHead from './calendarHead.jsx';
+import CalendarHeadContainer from '../../containers/reservations/CalendarHeadContainer';
 import Days from './calendarView.jsx';
 
 const StyledCalendar = styled.div`
@@ -16,7 +17,7 @@ class CalendarFull extends React.Component {
   render() {
     return (
       <StyledCalendar>
-        <CalendarHead date={new Date()}/>
+        <CalendarHeadContainer />
         <Days month={8} year={2018} daysOut={30} />
       </StyledCalendar>
     )

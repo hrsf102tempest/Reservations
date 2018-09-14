@@ -48,13 +48,13 @@ const StyledText = styled.p`
 StyledText.displayName = 'StyledText';
 
 const CalendarHead = (props) => {
-  const { date } = props;
+  const { month, year } = props;
   const getMonth = () => {
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    return months[date.getMonth()];
+    return months[month];
   };
 
-  const monthYear = `${getMonth()} ${date.getFullYear()}`;
+  const monthYear = `${getMonth()} ${year}`;
 
   return (
     <div>
