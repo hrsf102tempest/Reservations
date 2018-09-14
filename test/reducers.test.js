@@ -1,4 +1,4 @@
-import { test, describe, expect } from 'jest';
+// import { test, describe, expect } from 'jest';
 import CalendarReducer from '../client/src/reducers/CalendarReducer';
 import ReservationsReducer from '../client/src/reducers/ReservationsReducer';
 import { TimeSlotsReducer, findTime, init } from '../client/src/reducers/TimeSlotsReducer';
