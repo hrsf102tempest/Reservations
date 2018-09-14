@@ -7,7 +7,7 @@ const StyledCalendar = styled.div`
   margin-top: 20px;
   border: 1px solid black;
   border-radius: 5px;
-  width: 275px;
+  width: 273px;
 `;
 
 StyledCalendar.displayName = 'StyledCalendar';

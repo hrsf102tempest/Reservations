@@ -9,6 +9,7 @@ const StyledWeek = styled.div`
 
 const StyledLetter = styled.div`
   display: inline-block;
+  font-size: 12px;
   width: 33px;
   height: 17px;
   padding: 3px;

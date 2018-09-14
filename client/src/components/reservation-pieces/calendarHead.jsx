@@ -37,7 +37,7 @@ const StyledForward = styled.div`
 StyledForward.displayName = 'StyledForward';
 
 const StyledText = styled.p`
-  font-family: ;
+  font-size: 14px;
   font-weight: 700;
   width: 210px;
   text-align: center;
