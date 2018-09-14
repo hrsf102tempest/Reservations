@@ -1,105 +1,101 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledDay = styled.div`
-  display: inline-block;
-  text-align: center;
-  height: 30px;
-  width: 32px;
-  border-top: 1px solid rgb(204, 204, 204);
-  border-right: 1px solid rgb(204, 204, 204);
-  border-bottom: 0px none rgb(51, 51, 51);
-  border-left: 0px none rgb(51, 51, 51);
-  padding: 3px;
-  line-height: 30px;
-  box-shadow: rgb(205, 218, 226) 0px 0px 2px 0px inset;
-  padding: 3px;
-  line-height: 30px;
+const StyledDayEmpty = (dayNum) => {
+  return styled.div`
+    display: inline-block;
+    text-align: center;
+    height: 30px;
+    width: 32px;
+    border-top: 1px solid rgb(204, 204, 204);
+    border-right: 1px ${dayNum === 6 ? 'none' : 'solid'} rgb(204, 204, 204);
+    border-bottom: 0px none rgb(51, 51, 51);
+    border-left: 0px none rgb(51, 51, 51);
+    padding: 3px;
+    line-height: 30px;
+    padding: 3px;
+    line-height: 30px;
+    color: rgba(0, 0, 0, 0);
 
-  &:hover {
-    background: grey;
-  }
-`;
-
-const StyledDayEmpty = styled.div`
-  display: inline-block;
-  text-align: center;
-  height: 30px;
-  width: 32px;
-  border-top: 1px solid rgb(204, 204, 204);
-  border-right: 1px solid rgb(204, 204, 204);
-  border-bottom: 0px none rgb(51, 51, 51);
-  border-left: 0px none rgb(51, 51, 51);
-  padding: 3px;
-  line-height: 30px;
-  box-shadow: rgb(205, 218, 226) 0px 0px 2px 0px inset;
-  padding: 3px;
-  line-height: 30px;
-  color: rgba(0, 0, 0, 0);
-`;
-
-const ValidDay = styled.div`
-  display: inline-block;
-  text-align: center;
-  height: 30px;
-  width: 32px;
-  border-top: 1px solid rgb(204, 204, 204);
-  border-right: 1px solid rgb(204, 204, 204);
-  border-bottom: 0px none rgb(51, 51, 51);
-  border-left: 0px none rgb(51, 51, 51);
-  padding: 3px;
-  line-height: 30px;
-  box-shadow: rgb(205, 218, 226) 0px 0px 2px 0px inset;
-
-  &:hover {
-    background: rgb(240, 243, 248);
-  }
+    &:hover {
+      background: rgb(240, 243, 248);
+      cursor: pointer;
+      box-shadow: rgb(205, 218, 226) 0px 0px 2px 0px inset;
+    }
   `;
+};
+
+const ValidDay = (dayNum) => {
+  return styled.div`
+    display: inline-block;
+    text-align: center;
+    height: 30px;
+    width: 32px;
+    border-top: 1px solid rgb(204, 204, 204);
+    border-right: 1px ${dayNum === 6 ? 'none' : 'solid'} rgb(204, 204, 204);
+    border-bottom: 0px none rgb(51, 51, 51);
+    border-left: 0px none rgb(51, 51, 51);
+    padding: 3px;
+    line-height: 30px;
+
+    &:hover {
+      background: rgb(240, 243, 248);
+      cursor: pointer;
+      box-shadow: rgb(205, 218, 226) 0px 0px 2px 0px inset;
+    }
+  `;
+};
 
 ValidDay.displayName = 'ValidDay';
 
-const CurrentDay = styled.div`
-  display: inline-block;
-  text-align: center;
-  font-weight: 700;
-  height: 30px;
-  width: 32px;
-  border-top: 1px solid rgb(204, 204, 204);
-  border-right: 1px solid rgb(204, 204, 204);
-  border-bottom: 0px none rgb(51, 51, 51);
-  border-left: 0px none rgb(51, 51, 51);
-  padding: 3px;
-  line-height: 30px;
-  box-shadow: rgb(205, 218, 226) 0px 0px 2px 0px inset;
-  padding: 3px;
-  line-height: 30px;
-  color: white;
-  background-color: rgba(207, 18, 0, 0.8);
-`;
+const CurrentDay = (dayNum) => {
+  return styled.div`
+    display: inline-block;
+    text-align: center;
+    font-weight: 700;
+    height: 30px;
+    width: 32px;
+    border-top: 1px solid rgb(204, 204, 204);
+    border-right: 1px ${dayNum === 6 ? 'none' : 'solid'} rgb(204, 204, 204);
+    border-bottom: 0px none rgb(51, 51, 51);
+    border-left: 0px none rgb(51, 51, 51);
+    padding: 3px;
+    line-height: 30px;
+    padding: 3px;
+    line-height: 30px;
+    color: white;
+    background-color: rgba(207, 18, 0, 0.8);
+
+    &:hover {
+      cursor: pointer;
+    }
+  `;
+};
 
 CurrentDay.displayName = 'CurrentDay';
 
 
-const InvalidDay = styled.div`
-  display: inline-block;
-  text-align: center;
-  color: rgb(204, 204, 204);
-  height: 30px;
-  width: 32px;
-  border-top: 1px solid rgb(204, 204, 204);
-  border-right: 1px solid rgb(204, 204, 204);
-  border-bottom: 0px none rgb(51, 51, 51);
-  border-left: 0px none rgb(51, 51, 51);
-  padding: 3px;
-  line-height: 30px;
-  box-shadow: rgb(205, 218, 226) 0px 0px 2px 0px inset;
-  padding: 3px;
-  line-height: 30px;
+const InvalidDay = (dayNum) => {
+  return styled.div`
+    display: inline-block;
+    text-align: center;
+    color: rgb(204, 204, 204);
+    height: 30px;
+    width: 32px;
+    border-top: 1px solid rgb(204, 204, 204);
+    border-right: 1px ${dayNum === 6 ? 'none' : 'solid'} rgb(204, 204, 204);
+    border-bottom: 0px none rgb(51, 51, 51);
+    border-left: 0px none rgb(51, 51, 51);
+    padding: 3px;
+    line-height: 30px;
+    padding: 3px;
+    line-height: 30px;
 
-  &:hover {
-    cursor: pointer;
-  }
-`;
+    &:hover {
+      cursor: not-allowed;
+    }
+  `;
+};
 
 InvalidDay.displayName = 'InvalidDay';
 
@@ -119,7 +115,7 @@ const Days = (props) => {
     return result;
   };
 
-  const farthest = divDate(30);
+  const farthest = divDate(daysOut);
   const currentDate = divDate(new Date().getDate());
 
   const calendarMatrix = (monthGiven, yearGiven) => {
@@ -147,45 +143,49 @@ const Days = (props) => {
   };
 
   const calendarDays = calendarMatrix(month, year).map((days) => {
-    const week = days.map((day) => {
+    const week = days.map((day, index) => {
       const dayDate = divDate(day);
       if (day === undefined) {
+        const EmptyDiv = StyledDayEmpty(index);
         return (
-          <StyledDayEmpty>
-            {'a'}
-          </StyledDayEmpty>
+          <EmptyDiv>
+            { 'a' }
+          </EmptyDiv>
         );
       }
 
       if (dayDate < currentDate) {
+        const Invalid = InvalidDay(index);
         return (
-          <InvalidDay>
+          <Invalid>
             { day }
-          </InvalidDay>
+          </Invalid>
         );
       }
 
       if (dayDate.getDate() === currentDate.getDate() && dayDate.getMonth() === currentDate.getMonth()) {
+        const Current = CurrentDay(index);
         return (
-          <CurrentDay>
+          <Current>
             { day }
-          </CurrentDay>
+          </Current>
         );
       }
 
       if (dayDate > currentDate && dayDate <= farthest) {
+        const Valid = ValidDay(index);
         return (
-          <ValidDay>
+          <Valid>
             { day }
-          </ValidDay>
+          </Valid>
         );
       }
 
-
+      const Invalid = InvalidDay(index);
       return (
-        <InvalidDay>
+        <Invalid>
           { day }
-        </InvalidDay>
+        </Invalid>
       );
     });
 

@@ -7,24 +7,36 @@ const StyledWeek = styled.div`
   display: inline-block;
 `;
 
-const StyledLetter = styled.div`
-  display: inline-block;
-  font-size: 12px;
-  width: 33px;
-  height: 17px;
-  padding: 3px;
-  font-weight: 700;
-  color: red;
-  text-align: center;
-`;
+const StyledLetter = (width) => {
+  return styled.div`
+    display: inline-block;
+    font-size: 12px;
+    width: ${width}px;
+    height: 17px;
+    padding: 3px;
+    font-weight: 700;
+    color: red;
+    text-align: center;
+  `;
+};
 
 const Letters = () => {
   const letters = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-  const weekLetters = letters.map((letter) => {
+  const weekLetters = letters.map((letter, index) => {
+    if (index === 6) {
+      const LetterDiv = StyledLetter(32);
+      return (
+        <LetterDiv>
+          { letter }
+        </LetterDiv>
+      );
+    }
+
+    const LetterDiv = StyledLetter(33);
     return (
-      <StyledLetter>
+      <LetterDiv>
         { letter }
-      </StyledLetter>
+      </LetterDiv>
     );
   });
 
