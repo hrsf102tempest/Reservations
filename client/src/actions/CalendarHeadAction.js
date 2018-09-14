@@ -2,12 +2,13 @@
 
 const changeMonthYear = (month, year) => {
   const obj = {
-    action: 'NEW_MONTH_YEAR',
+    type: 'NEW_MONTH_YEAR',
     date: {
       month,
       year,
     },
   };
+  console.log(obj);
   return obj;
 };
 

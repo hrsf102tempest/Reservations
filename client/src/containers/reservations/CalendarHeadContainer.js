@@ -4,19 +4,18 @@ import changeMonthYear from '../../actions/CalendarHeadAction';
 
 const mapDispatchToProps = (dispatch) => {
   const obj = {
-    newDate: (date) => {
-      dispatch(changeMonthYear(date));
+    newDate: (month, year) => {
+      console.log('hit', month, year);
+      dispatch(changeMonthYear(month, year));
     },
   };
   return obj;
 };
 
 const mapStateToProps = (state) => {
-  console.log(state.CalendarHeadReducer);
   const props = {
     month: state.CalendarHeadReducer.date.month,
     year: state.CalendarHeadReducer.date.year,
-    business: state.ReservationsReducer,
   };
   return props;
 };

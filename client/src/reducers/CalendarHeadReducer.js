@@ -9,11 +9,10 @@ const CalendarHeadReducer = (state = init, action) => {
   let newState = {};
 
   if (action.type === 'NEW_MONTH_YEAR') {
-    newState = action.date;
+    newState = action;
   } else {
     return state;
   }
-
   return newState;
 };
 

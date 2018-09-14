@@ -48,7 +48,7 @@ const StyledText = styled.p`
 StyledText.displayName = 'StyledText';
 
 const CalendarHead = (props) => {
-  const { month, year } = props;
+  const { month, year, newDate } = props;
   const getMonth = () => {
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     return months[month];
@@ -56,11 +56,25 @@ const CalendarHead = (props) => {
 
   const monthYear = `${getMonth()} ${year}`;
 
+  const newMonthYear = (str) => {
+    console.log(str, month, year);
+    if (str === 'back') {
+      if (month === 0) {
+        return [11, year - 1];
+      }
+      return [month - 1, year];
+    }
+    if (month === 11) {
+      return [0, year + 1];
+    }
+    return [month + 1, year];
+  };
+
   return (
     <div>
-      <StyledBack>{'<'}</StyledBack>
+      <StyledBack onClick={() => newDate(...newMonthYear('back'))}>{'<'}</StyledBack>
       <StyledText>{ monthYear }</StyledText>
-      <StyledForward>{'>'}</StyledForward>
+      <StyledForward onClick={() => newDate(...newMonthYear('forward'))}>{'>'}</StyledForward>
       <Letters />
     </div>
   );
