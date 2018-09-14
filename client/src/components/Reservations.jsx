@@ -79,7 +79,6 @@ class Reservations extends React.Component {
         <FindTableContainer />
 
         <h5>
-          
         </h5>
       </ResBox>
     );
