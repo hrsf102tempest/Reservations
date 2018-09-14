@@ -6,6 +6,7 @@ import PeoplePerResContainer from '../containers/reservations/PeoplePerResContai
 import FindTableContainer from '../containers/reservations/FindTableContainer';
 import CalendarContainer from '../containers/reservations/CalendarContainer';
 import Cal from './calendarIcon.jsx';
+import CalendarFull from './reservation-pieces/calendarFull.jsx';
 
 const Title = styled.p`
   font-size: 16px;
@@ -78,8 +79,7 @@ class Reservations extends React.Component {
         <PeoplePerResContainer />
         <FindTableContainer />
 
-        <h5>
-        </h5>
+        <CalendarFull />
       </ResBox>
     );
   }
