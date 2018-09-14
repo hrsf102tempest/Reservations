@@ -1,7 +1,7 @@
 const init = {
   date: {
     month: new Date().getMonth(),
-    year: new Date().getMonth(),
+    year: new Date().getFullYear(),
   },
 };
 
