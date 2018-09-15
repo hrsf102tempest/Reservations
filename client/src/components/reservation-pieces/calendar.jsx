@@ -66,7 +66,6 @@ class Calendar extends React.Component {
   }
 
   render() {
-    console.log('cal rendered');
     return (
 
       <StyledCalendar>
@@ -75,7 +74,7 @@ class Calendar extends React.Component {
             { Cal(16) }
           </StyledCal>
         </span>
-        <StyledDate>{ this.date()}</StyledDate>
+        <StyledDate onClick={() => this.props.newStatus(!(this.props.showCalendar))}>{ this.date()}</StyledDate>
         <StyledDown>
           { Down(7) }
         </StyledDown>

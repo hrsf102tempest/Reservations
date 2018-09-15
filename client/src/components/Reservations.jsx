@@ -49,6 +49,12 @@ const CalWrapper = styled.div`
 
 CalWrapper.displayName = 'CalWrapper';
 
+const SecretDiv = styled.div`
+  visibility: ${props => (props.visible ? 'visible' : 'hidden')};
+`;
+
+SecretDiv.displayName = 'SecretDiv';
+
 class Reservations extends React.Component {
   componentDidMount() {
     this.fetch(7);
@@ -75,11 +81,14 @@ class Reservations extends React.Component {
           <Title>Make a Reservation</Title>
         </Wrapper>
         <CalendarContainer />
+        {/* secret Div for full calendar */}
         <TimeSlotsContainer />
         <PeoplePerResContainer />
         <FindTableContainer />
 
-        <CalendarFull />
+        <SecretDiv visible={this.props.showCalendar}>
+          <CalendarFull />
+        </SecretDiv>
       </ResBox>
     );
   }

@@ -123,7 +123,6 @@ const Days = (props) => {
     return result;
   })(daysOut);
   const currentDate = divDate(new Date().getDate(), todaysMonth, todaysYear);
-  console.log('currentDate', currentDate);
 
   const calendarMatrix = (monthGiven, yearGiven) => {
     const longMonths = [0, 2, 4, 6, 7, 9, 11];
@@ -173,7 +172,7 @@ const Days = (props) => {
       if (dayDate.getDate() === date.getDate() && dayDate.getMonth() === date.getMonth()) {
         const Current = CurrentDay(index);
         return (
-          <Current onClick={() => newViewedDate(dayDate)}>
+          <Current onClick={() => { newViewedDate(dayDate); props.newStatus(!(props.showCalendar)); }}>
             { day }
           </Current>
         );
@@ -182,7 +181,7 @@ const Days = (props) => {
       if (dayDate >= currentDate && dayDate <= farthest) {
         const Valid = ValidDay(index);
         return (
-          <Valid onClick={() => newViewedDate(dayDate)}>
+          <Valid onClick={() => { newViewedDate(dayDate); props.newStatus(!(props.showCalendar)); }}>
             { day }
           </Valid>
         );

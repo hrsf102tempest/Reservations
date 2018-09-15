@@ -4,7 +4,6 @@ import CalendarReducer from './CalendarReducer';
 import CalendarHeadReducer from './CalendarHeadReducer';
 import CalendarViewReducer from './CalendarViewReducer';
 import TimeSlotsReducer from './TimeSlotsReducer';
-// import reducers
 
 const rootReducer = combineReducers({
   ReservationsReducer,

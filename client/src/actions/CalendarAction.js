@@ -1,9 +1,11 @@
-const changeDate = (date) => {
+const changeStatus = (status) => {
   const action = {
-    type: 'NEW_DATE',
-    month: date,
+    type: 'NEW_SHOW',
+    showStatus: {
+      showCalendar: status,
+    },
   };
   return action;
 };
 
-export default changeDate;
+export default changeStatus;

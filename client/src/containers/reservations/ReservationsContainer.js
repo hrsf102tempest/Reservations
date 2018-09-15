@@ -15,6 +15,7 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
   const props = {
     business: state.ReservationsReducer,
+    showCalendar: state.CalendarReducer.showCalendar,
   };
   return props;
 };

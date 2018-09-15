@@ -1,12 +1,12 @@
 const init = {
-  date: new Date(),
+  showCalendar: false,
 };
 
 const CalendarReducer = (state = init, action) => {
   let newState = {};
 
-  if (action.type === 'NEW_DATE') {
-    newState = action.date;
+  if (action.type === 'NEW_SHOW') {
+    newState = action.showStatus;
   } else {
     return state;
   }
