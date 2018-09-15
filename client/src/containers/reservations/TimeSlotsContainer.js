@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   const props = {
-    date: state.CalendarReducer.date,
+    date: state.CalendarViewReducer.date,
     time: state.TimeSlotsReducer,
     hours: state.ReservationsReducer === null ? null : state.ReservationsReducer.hours,
   };

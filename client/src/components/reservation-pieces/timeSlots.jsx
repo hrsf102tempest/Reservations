@@ -29,6 +29,11 @@ const Wrapper = styled.select`
   padding: 8px 42px;
   background-color: rgba(0, 0, 0, 0);
   z-index: 0;
+
+  :focus {
+    outline: none;
+    border-color: rgb(0, 115, 187);
+  }
 `;
 
 Wrapper.displayName = 'SelectWrapper';

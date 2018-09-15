@@ -1,3 +1,4 @@
+// import { test, describe, expect } from 'jest';
 import React from 'react';
 import { shallow } from 'enzyme';
 import store from '../client/src/store/store';
@@ -30,19 +31,14 @@ describe('Containers', () => {
       expect(wrapper.props()).not.toEqual(undefined);
     });
 
-    test('props should have a method named "newDate"', () => {
+    test('props should have a method named "newStatus"', () => {
       const wrapper = shallow(<CalendarContainer store={store} />);
-      expect(typeof wrapper.props().newDate).toBe('function');
+      expect(typeof wrapper.props().newStatus).toBe('function');
     });
 
-    test('props should have a key "business" that is initially "null"', () => {
+    test('props should have a key "showCalendar" that is a boolean', () => {
       const wrapper = shallow(<CalendarContainer store={store} />);
-      expect(wrapper.props().business).toBe(null);
-    });
-
-    test('props should have a key "date" that is a Date object', () => {
-      const wrapper = shallow(<CalendarContainer store={store} />);
-      expect(wrapper.props().date instanceof Date).toBe(true);
+      expect(typeof wrapper.props().showCalendar).toBe('boolean');
     });
   });
 

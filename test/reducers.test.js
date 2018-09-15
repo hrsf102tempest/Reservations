@@ -1,3 +1,4 @@
+// import { test, describe, expect } from 'jest';
 import CalendarReducer from '../client/src/reducers/CalendarReducer';
 import ReservationsReducer from '../client/src/reducers/ReservationsReducer';
 import { TimeSlotsReducer, findTime, init } from '../client/src/reducers/TimeSlotsReducer';
@@ -33,10 +34,10 @@ describe('Reducers', () => {
     };
 
     test('initial state should have a key "key" date with a Date object', () => {
-      expect(CalendarReducer(undefined, dummyAction).date instanceof Date).toBe(true);
+      expect(typeof CalendarReducer(undefined, calendarAction).showCalendar).toBe('boolean');
     });
 
-    test('should return an object with "date" key that is a date object', () => {
+    test('should return an object with "date" key that is a boolean', () => {
       expect(CalendarReducer(initialState, calendarAction).date instanceof Date).toBe(true);
     });
   });

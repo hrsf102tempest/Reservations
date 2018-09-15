@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import Calendar from '../../components/reservation-pieces/calendar.jsx';
-import changeDate from '../../actions/CalendarAction';
+import changeStatus from '../../actions/CalendarAction';
 
 const mapDispatchToProps = (dispatch) => {
   const obj = {
-    newDate: (date) => {
-      dispatch(changeDate(date));
+    newStatus: (status) => {
+      dispatch(changeStatus(status));
     },
   };
   return obj;
@@ -13,8 +13,8 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   const props = {
-    date: state.CalendarReducer.date,
-    business: state.ReservationsReducer,
+    date: state.CalendarViewReducer.date,
+    showCalendar: state.CalendarReducer.showCalendar,
   };
   return props;
 };
