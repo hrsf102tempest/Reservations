@@ -4,7 +4,6 @@ const changeViewedDay = (day) => {
     type: 'NEW_VIEWED_DAY',
     date: day,
   };
-  console.log(obj);
   return obj;
 };
 

@@ -5,7 +5,6 @@ import changeMonthYear from '../../actions/CalendarHeadAction';
 const mapDispatchToProps = (dispatch) => {
   const obj = {
     newDate: (month, year) => {
-      console.log('hit', month, year);
       dispatch(changeMonthYear(month, year));
     },
   };
