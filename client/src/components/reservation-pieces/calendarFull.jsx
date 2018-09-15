@@ -6,7 +6,6 @@ import CalendarViewContainer from '../../containers/reservations/CalendarViewCon
 // import Days from './calendarView.jsx';
 
 const StyledCalendar = styled.div`
-  margin-top: 20px;
   border: 1px solid rgb(204, 204, 204);
   border-radius: 5px;
   width: 272px;

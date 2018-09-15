@@ -21,10 +21,9 @@ const Title = styled.p`
 Title.displayName = 'Title';
 
 const Wrapper = styled.section`
+  display: inline-block;
   height: 25px;
   width: 265px;
-  // border: 1px solid black;
-  // border-radius: 10px;
   margin: 10px 0px 5px 0;
   text-align: left;
   padding: 5px 15px 5px 0;
@@ -38,6 +37,12 @@ const ResBox = styled.div`
   width: 298px;
   border: 1px solid black;
   border-radius: 10px;
+  background-color: white;
+  display: inline-block;
+
+  :focus {
+  -webkit-appearance: none;
+  }
 `;
 
 ResBox.displayName = 'ResBox';
@@ -51,9 +56,28 @@ CalWrapper.displayName = 'CalWrapper';
 
 const SecretDiv = styled.div`
   visibility: ${props => (props.visible ? 'visible' : 'hidden')};
+  display: inline-block;
+  background-color: white;
+  position: relative;
+  bottom: 70px;
+  left: 9px;
 `;
 
 SecretDiv.displayName = 'SecretDiv';
+
+const DivPoint = styled.div`
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border-left: 1px solid rgb(204, 204, 204);
+  border-top: 1px solid rgb(204, 204, 204);
+  height: 13px;
+  width: 13px;
+  display: inline-block;
+  background-color: white;
+  position: absolute;
+  left: 125px;
+  top: -6px;
+`;
 
 class Reservations extends React.Component {
   componentDidMount() {
@@ -87,6 +111,7 @@ class Reservations extends React.Component {
         <FindTableContainer />
 
         <SecretDiv visible={this.props.showCalendar}>
+          <DivPoint />
           <CalendarFull />
         </SecretDiv>
       </ResBox>

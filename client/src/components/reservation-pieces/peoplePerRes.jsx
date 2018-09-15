@@ -10,9 +10,14 @@ const Wrapper = styled.div`
 const SelectWrapper = styled.select`
   -webkit-appearance: none;
   display: inline-block;
-  padding: 8px 45px;
+  padding: 8px 42px;
   z-index: 0;
   background-color: rgba(0, 0, 0, 0);
+
+  :focus {
+    outline: none;
+    border-color: rgb(0, 115, 187);
+  }
 `;
 
 SelectWrapper.displayName = 'SelectWrapper';

@@ -26,6 +26,11 @@ const StyledCalendar = styled.button`
   position: relative;
   bottom: 5px;
   z-index: 0;
+
+  :focus {
+    outline: none;
+    border-color: rgb(0, 115, 187);
+  }
 `;
 
 const StyledDate = styled.p`

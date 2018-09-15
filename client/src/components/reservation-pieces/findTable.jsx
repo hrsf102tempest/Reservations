@@ -12,6 +12,10 @@ const StyledFind = styled.button`
   color: white;
   font-size: 12px;
   box-shadow: 0 1px 1px rgba(0,0,0,0.3)
+
+  :focus {
+    outline: none;
+  }
 `;
 
 StyledFind.displayName = 'StyledFind';
@@ -20,7 +24,7 @@ const Wrapper = styled.div`
   display: inline-block;
 `;
 
-const FindTable = (props) => {
+const FindTable = () => {
   return (
     <Wrapper>
       <StyledFind>Find a Table</StyledFind>
