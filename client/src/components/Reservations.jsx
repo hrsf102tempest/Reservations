@@ -61,6 +61,7 @@ const SecretDiv = styled.div`
   position: relative;
   bottom: 70px;
   left: 9px;
+  z-index: 3;
 `;
 
 SecretDiv.displayName = 'SecretDiv';

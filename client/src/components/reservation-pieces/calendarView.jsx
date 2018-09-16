@@ -107,8 +107,11 @@ const StyledWeek = styled.div`
 display: inline-block;
 `;
 
+StyledWeek.displayName = 'StyledWeek';
+StyledView.displayName = 'StyledView';
+
 const Days = (props) => {
-  const { month, year, daysOut, date, newViewedDate, } = props;
+  const { month, year, daysOut, date, newViewedDate, newStatus, showCalendar, } = props;
 
   const divDate = (targetDay, targetMonth = month, targetYear = year) => {
     const result = new Date(targetYear, targetMonth, targetDay);
@@ -148,7 +151,7 @@ const Days = (props) => {
     return matrix;
   };
 
-  const calendarDays = calendarMatrix(month, year).map((days) => {
+  const calendarDays = calendarMatrix(month, year).map((days, weekNum) => {
     const week = days.map((day, index) => {
       const dayDate = divDate(day);
       if (day === undefined) {
@@ -163,7 +166,7 @@ const Days = (props) => {
       if (dayDate < currentDate) {
         const Invalid = InvalidDay(index);
         return (
-          <Invalid>
+          <Invalid className={`day${day}`}>
             { day }
           </Invalid>
         );
@@ -172,7 +175,7 @@ const Days = (props) => {
       if (dayDate.getDate() === date.getDate() && dayDate.getMonth() === date.getMonth()) {
         const Current = CurrentDay(index);
         return (
-          <Current onClick={() => { newViewedDate(dayDate); props.newStatus(!(props.showCalendar)); }}>
+          <Current className={`day${day}`} onClick={() => { newViewedDate(dayDate); newStatus(!(showCalendar)); }}>
             { day }
           </Current>
         );
@@ -181,7 +184,7 @@ const Days = (props) => {
       if (dayDate >= currentDate && dayDate <= farthest) {
         const Valid = ValidDay(index);
         return (
-          <Valid onClick={() => { newViewedDate(dayDate); props.newStatus(!(props.showCalendar)); }}>
+          <Valid className={`day${day}`} onClick={() => { newViewedDate(dayDate); newStatus(!(showCalendar)); }}>
             { day }
           </Valid>
         );
@@ -189,14 +192,14 @@ const Days = (props) => {
 
       const Invalid = InvalidDay(index);
       return (
-        <Invalid>
+        <Invalid className={`day${day}`}>
           { day }
         </Invalid>
       );
     });
 
     return (
-      <StyledWeek>
+      <StyledWeek className={`week${weekNum}`}>
         { week }
       </StyledWeek>
     );
