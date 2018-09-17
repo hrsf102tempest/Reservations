@@ -3,7 +3,7 @@ import ReservationsReducer from './ReservationsReducer';
 import CalendarReducer from './CalendarReducer';
 import CalendarHeadReducer from './CalendarHeadReducer';
 import CalendarViewReducer from './CalendarViewReducer';
-import TimeSlotsReducer from './TimeSlotsReducer';
+import { TimeSlotsReducer } from './TimeSlotsReducer';
 
 const rootReducer = combineReducers({
   ReservationsReducer,

@@ -73,7 +73,7 @@ class Calendar extends React.Component {
   render() {
     return (
 
-      <StyledCalendar>
+      <StyledCalendar className="Calendar">
         <span>
           <StyledCal>
             { Cal(16) }

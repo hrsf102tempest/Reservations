@@ -6,7 +6,7 @@ import PeoplePerResContainer from '../containers/reservations/PeoplePerResContai
 import FindTableContainer from '../containers/reservations/FindTableContainer';
 import CalendarContainer from '../containers/reservations/CalendarContainer';
 import Cal from './calendarIcon.jsx';
-import CalendarFull from './reservation-pieces/calendarFull.jsx';
+import CalendarFullContainer from '../containers/reservations/CalendarFullContainter';
 
 const Title = styled.p`
   font-size: 16px;
@@ -97,6 +97,7 @@ class Reservations extends React.Component {
 
 
   render() {
+    const { showCalendar } = this.props;
     return (
       <ResBox>
         <Wrapper>
@@ -111,9 +112,9 @@ class Reservations extends React.Component {
         <PeoplePerResContainer />
         <FindTableContainer />
 
-        <SecretDiv visible={this.props.showCalendar}>
+        <SecretDiv visible={showCalendar}>
           <DivPoint />
-          <CalendarFull />
+          <CalendarFullContainer />
         </SecretDiv>
       </ResBox>
     );

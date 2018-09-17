@@ -1,15 +1,15 @@
 // import { test, describe, expect } from 'jest';
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import Reservations from '../client/src/components/Reservations';
-import Calendar from '../client/src/components/reservation-pieces/calendar.jsx';
-import FindTable from '../client/src/components/reservation-pieces/findTable.jsx';
-import PeoplePerRes from '../client/src/components/reservation-pieces/peoplePerRes.jsx';
-import TimeSlots from '../client/src/components/reservation-pieces/timeSlots.jsx';
-import CalendarFull from '../client/src/components/reservation-pieces/calendarFull.jsx';
-import CalendarHead from '../client/src/components/reservation-pieces/calendarHead.jsx';
-import Days from '../client/src/components/reservation-pieces/calendarView.jsx';
-import Letters from '../client/src/components/reservation-pieces/dayLetter.jsx';
+import Calendar from '../client/src/components/reservation-pieces/calendar';
+import FindTable from '../client/src/components/reservation-pieces/findTable';
+import PeoplePerRes from '../client/src/components/reservation-pieces/peoplePerRes';
+import TimeSlots from '../client/src/components/reservation-pieces/timeSlots';
+import CalendarFull from '../client/src/components/reservation-pieces/calendarFull';
+import CalendarHead from '../client/src/components/reservation-pieces/calendarHead';
+import Days from '../client/src/components/reservation-pieces/calendarView';
+import Letters from '../client/src/components/reservation-pieces/dayLetter';
 
 describe('Components', () => {
   describe('Reservations component', () => {

@@ -8,7 +8,7 @@ const StyledWeek = styled.div`
 `;
 
 const StyledLetter = (width) => {
-  return styled.div`
+  const obj = styled.div`
     display: inline-block;
     font-size: 12px;
     width: ${width}px;
@@ -18,6 +18,8 @@ const StyledLetter = (width) => {
     color: red;
     text-align: center;
   `;
+
+  return obj;
 };
 
 const Letters = () => {

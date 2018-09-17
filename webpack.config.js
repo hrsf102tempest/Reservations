@@ -9,6 +9,9 @@ module.exports = {
     filename: 'bundle.js',
     path: distDir,
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   module: {
     rules: [{
       test: /\.jsx?/,

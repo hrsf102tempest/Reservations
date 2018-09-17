@@ -66,9 +66,10 @@ describe('Containers', () => {
       expect(wrapper.props().date instanceof Date).toBe(true);
     });
 
-    test('props should have a key "date" that is a Date object', () => {
+    test('props should have a key "time" that contains a day and time', () => {
       const wrapper = shallow(<TimeSlotsContainer store={store} />);
-      expect(wrapper.props().time).toBe(undefined);
+      expect(wrapper.props().time.day).not.toBe(undefined);
+      expect(wrapper.props().time.time).not.toBe(undefined);
     });
   });
 
