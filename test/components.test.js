@@ -104,9 +104,9 @@ describe('Components', () => {
     });
 
     test('week should contain 7 days', () => {
-      const wrapper = mount(<Days {...props} />);
-      const days = wrapper.find('.week0').children().length;
-      expect(days).toBe(8);
+      const wrapper = shallow(<Days {...props} />);
+      const days = wrapper.find('.week0').dive().children().length;
+      expect(days).toBe(7);
     });
 
     test('second day should be in second week', () => {
