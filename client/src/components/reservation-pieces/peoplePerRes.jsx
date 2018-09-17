@@ -11,7 +11,8 @@ const SelectWrapper = styled.select`
   -webkit-appearance: none;
   display: inline-block;
   padding: 8px 42px;
-  z-index: 0;
+  position: relative;
+  z-index: 2;
   background-color: rgba(0, 0, 0, 0);
 
   :focus {
@@ -28,14 +29,14 @@ const StyledIcon = styled.img`
   display: inline-block;
   padding: 5px 5px 0px 5px;
   position: absolute;
-  z-index: -1;
+  z-index: 1;
 `;
 
 const DownWrapper = styled.div`
   display: inline-block;
   position: absolute;
   width: 0px;
-  z-index: -1;
+  z-index: 1;
 `;
 
 const PeoplePerRes = (props) => {

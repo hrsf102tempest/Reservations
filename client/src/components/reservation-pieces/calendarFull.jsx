@@ -13,6 +13,8 @@ const StyledCalendar = styled.div`
 
 StyledCalendar.displayName = 'StyledCalendar';
 
+StyledCalendar.displayName = 'StyledCalendar';
+
 class CalendarFull extends React.Component {
   render() {
     return (

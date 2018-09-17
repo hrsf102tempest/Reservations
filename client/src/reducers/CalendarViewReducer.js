@@ -1,6 +1,7 @@
 const init = {
   day: new Date().getDate(),
   date: new Date(),
+  daysOut: 0,
 };
 
 const CalendarViewReducer = (state = init, action) => {

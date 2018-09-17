@@ -1,11 +1,15 @@
 // import { test, describe, expect } from 'jest';
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import Reservations from '../client/src/components/Reservations';
 import Calendar from '../client/src/components/reservation-pieces/calendar.jsx';
 import FindTable from '../client/src/components/reservation-pieces/findTable.jsx';
 import PeoplePerRes from '../client/src/components/reservation-pieces/peoplePerRes.jsx';
 import TimeSlots from '../client/src/components/reservation-pieces/timeSlots.jsx';
+import CalendarFull from '../client/src/components/reservation-pieces/calendarFull.jsx';
+import CalendarHead from '../client/src/components/reservation-pieces/calendarHead.jsx';
+import Days from '../client/src/components/reservation-pieces/calendarView.jsx';
+import Letters from '../client/src/components/reservation-pieces/dayLetter.jsx';
 
 describe('Components', () => {
   describe('Reservations component', () => {
@@ -61,6 +65,61 @@ describe('Components', () => {
       const wrapper = shallow(<TimeSlots date={new Date('september 13, 2018')} hours={hours} />);
       const text = wrapper.find('SelectWrapper').childAt(0).text();
       expect(text).toBe('11:00 am');
+    });
+  });
+
+  describe('CalendarFull component', () => {
+    test('should contain 2 child nodes', () => {
+      const wrapper = shallow(<CalendarFull />);
+      expect(wrapper.children().length).toEqual(2);
+    });
+  });
+
+  describe('CalendarHead component', () => {
+    const dateText = () => {
+      const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+      const month = months[new Date().getMonth()];
+      return `${month} ${new Date().getFullYear()}`;
+    };
+
+    test('should contain text with current month and year', () => {
+      const wrapper = shallow(<CalendarHead month={new Date().getMonth()} year={new Date().getFullYear()} />);
+      const text = wrapper.find('StyledText').children().text();
+      expect(text).toEqual(dateText());
+    });
+  });
+
+  describe('CalendarView component', () => {
+    const props = {
+      month: 8,
+      year: 2018,
+      daysOut: 90,
+      date: new Date('september 15, 2018'),
+    };
+
+    test('should return the correct number of weeks', () => {
+      const wrapper = shallow(<Days {...props} />);
+      const weeks = wrapper.find('StyledView').children().length;
+      expect(weeks).toBe(6);
+    });
+
+    test('week should contain 7 days', () => {
+      const wrapper = shallow(<Days {...props} />);
+      const days = wrapper.find('.week0').dive().children().length;
+      expect(days).toBe(7);
+    });
+
+    test('second day should be in second week', () => {
+      const wrapper = shallow(<Days {...props} />);
+      const firstDay = wrapper.find('.week1 .day2').dive().text();
+      expect(firstDay).toBe('2');
+    });
+  });
+
+  describe('DayLetter component', () => {
+    test('should contain 7 children', () => {
+      const wrapper = shallow(<Letters />);
+      expect(wrapper.children().length).toEqual(7);
     });
   });
 });
