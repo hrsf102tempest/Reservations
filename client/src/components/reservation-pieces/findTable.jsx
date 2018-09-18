@@ -24,13 +24,10 @@ const Wrapper = styled.div`
   display: inline-block;
 `;
 
-const FindTable = () => {
-  return (
-    <Wrapper>
-      <StyledFind>Find a Table</StyledFind>
-    </Wrapper>
-  );
-};
-
+const FindTable = () => (
+  <Wrapper>
+    <StyledFind>Find a Table</StyledFind>
+  </Wrapper>
+);
 
 export default FindTable;

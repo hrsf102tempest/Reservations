@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Calendar from '../../components/reservation-pieces/calendar.jsx';
+import Calendar from '../../components/reservation-pieces/calendar';
 import changeStatus from '../../actions/CalendarAction';
 
 const mapDispatchToProps = (dispatch) => {

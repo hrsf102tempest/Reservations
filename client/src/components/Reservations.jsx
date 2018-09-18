@@ -1,12 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import $ from 'jquery';
 import styled from 'styled-components';
 import TimeSlotsContainer from '../containers/reservations/TimeSlotsContainer';
 import PeoplePerResContainer from '../containers/reservations/PeoplePerResContainer';
 import FindTableContainer from '../containers/reservations/FindTableContainer';
 import CalendarContainer from '../containers/reservations/CalendarContainer';
-import Cal from './calendarIcon.jsx';
-import CalendarFull from './reservation-pieces/calendarFull.jsx';
+import Cal from './calendarIcon';
+import CalendarFull from './reservation-pieces/calendarFull';
 
 const Title = styled.p`
   font-size: 16px;
@@ -35,8 +36,8 @@ const ResBox = styled.div`
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   height: 164px;
   width: 298px;
-  border: 1px solid black;
-  border-radius: 10px;
+  border: 1px solid rgb(230, 230, 230);
+  border-radius: 5px;
   background-color: white;
   display: inline-block;
 
@@ -97,6 +98,8 @@ class Reservations extends React.Component {
 
 
   render() {
+    const { showCalendar } = this.props;
+
     return (
       <ResBox>
         <Wrapper>
@@ -106,12 +109,11 @@ class Reservations extends React.Component {
           <Title>Make a Reservation</Title>
         </Wrapper>
         <CalendarContainer />
-        {/* secret Div for full calendar */}
         <TimeSlotsContainer />
         <PeoplePerResContainer />
         <FindTableContainer />
 
-        <SecretDiv visible={this.props.showCalendar}>
+        <SecretDiv visible={showCalendar}>
           <DivPoint />
           <CalendarFull />
         </SecretDiv>
@@ -119,5 +121,10 @@ class Reservations extends React.Component {
     );
   }
 }
+
+Reservations.propTypes = {
+  newBusinessSelected: PropTypes.func.isRequired,
+  showCalendar: PropTypes.bool.isRequired,
+};
 
 export default Reservations;

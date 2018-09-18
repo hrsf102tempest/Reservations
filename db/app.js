@@ -1,6 +1,4 @@
-// const { MongoClient } = require('mongodb');
 const mongoose = require('mongoose');
-// const assert = require('assert');
 
 const url = 'mongodb://localhost:27017';
 

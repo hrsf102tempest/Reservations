@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Down from '../downArrow.jsx';
+import Down from '../downArrow';
 
 const clockImg = 'https://visualpharm.com/assets/704/Clock-595b40b75ba036ed117d92ff.svg';
 
@@ -15,10 +16,8 @@ const StyledClock = styled.img`
 `;
 
 const StyledTimes = styled.div`
-  width: 140px;
-  height: 30px;
-  // border: 1px solid black;
-  // border-radius: 5px;
+  width: 133px;
+  height: 25px;
   margin: 2px 1px 2px 9px;
   display: inline-block;
 `;
@@ -26,8 +25,10 @@ const StyledTimes = styled.div`
 const Wrapper = styled.select`
   -webkit-appearance: none;
   display: inline-block;
-  padding: 8px 42px;
-  background-color: rgba(0, 0, 0, 0);
+  padding: 6px 45px 6px 25px;
+  border: 1px solid rgb(204,204,204);
+  background-color: rgba(0,0,0,0);
+  font-size: 14px;
   position: relative;
   z-index: 2;
 
@@ -129,13 +130,11 @@ class TimeSlots extends React.Component {
 
   makeOptions() {
     const array = this.availableTimes();
-    const options = array.map((timeString) => {
-      return (
-        <option>
-          {timeString}
-        </option>
-      );
-    });
+    const options = array.map(timeString => (
+      <option>
+        {timeString}
+      </option>
+    ));
 
     return options;
   }
@@ -155,5 +154,17 @@ class TimeSlots extends React.Component {
   }
 }
 
+TimeSlots.propTypes = {
+  date: PropTypes.instanceOf(Date).isRequired,
+  hours: PropTypes.shape({
+    Sunday: PropTypes.string.isRequired,
+    Monday: PropTypes.string.isRequired,
+    Tuesday: PropTypes.string.isRequired,
+    Wednesday: PropTypes.string.isRequired,
+    Thursday: PropTypes.string.isRequired,
+    Friday: PropTypes.string.isRequired,
+    Saturday: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default TimeSlots;

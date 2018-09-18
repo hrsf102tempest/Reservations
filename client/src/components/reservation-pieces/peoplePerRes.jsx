@@ -1,19 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import icon from '../../../../icon.png';
-import Down from '../downArrow.jsx';
+import Down from '../downArrow';
 
 const Wrapper = styled.div`
   display: inline-block;
+  margin-left: 12px;
 `;
 
 const SelectWrapper = styled.select`
   -webkit-appearance: none;
   display: inline-block;
-  padding: 8px 42px;
+  padding: 6px 35px;
   position: relative;
   z-index: 2;
-  background-color: rgba(0, 0, 0, 0);
+  font-size: 14px;
+  border: 1px solid rgb(204,204,204);
+  background-color: rgba(0,0,0,0);
 
   :focus {
     outline: none;
@@ -53,13 +57,11 @@ const PeoplePerRes = (props) => {
     optionText.push(text);
   }
 
-  const options = optionText.map((filler, index) => {
-    return (
-      <option className={`entry${index}`}>
-        { filler }
-      </option>
-    );
-  });
+  const options = optionText.map((filler, index) => (
+    <option className={`entry${index}`}>
+      { filler }
+    </option>
+  ));
 
   return (
     <Wrapper>
@@ -75,5 +77,8 @@ const PeoplePerRes = (props) => {
   );
 };
 
+PeoplePerRes.propTypes = {
+  maxPeople: PropTypes.number.isRequired,
+};
 
 export default PeoplePerRes;

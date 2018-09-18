@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
-import TimeSlots from '../../components/reservation-pieces/timeSlots.jsx';
+import TimeSlots from '../../components/reservation-pieces/timeSlots';
 import changeTime from '../../actions/TimeSlotsAction';
-// import ACTION from '../../actions/TimeSlots';
 
 const mapDispatchToProps = (dispatch) => {
   const obj = {

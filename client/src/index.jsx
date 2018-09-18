@@ -9,5 +9,7 @@ ReactDOM.render(
   <Provider store={store}>
     <ReservationsContainer />
   </Provider>,
-  document.getElementById('reservations')
+  document.getElementById('reservations'),
 );
+
+// window.Reservations = ReservationsContainer;

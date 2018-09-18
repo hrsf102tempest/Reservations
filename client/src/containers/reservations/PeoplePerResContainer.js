@@ -1,10 +1,5 @@
 import { connect } from 'react-redux';
-import PeoplePerRes from '../../components/reservation-pieces/peoplePerRes.jsx';
-// import ACTION from '../../actions/TimeSlots';
-
-const mapDispatchToProps = (dispatch) => ({
-  // code here for dispatch
-});
+import PeoplePerRes from '../../components/reservation-pieces/peoplePerRes';
 
 const mapStateToProps = (state) => {
   const props = {
