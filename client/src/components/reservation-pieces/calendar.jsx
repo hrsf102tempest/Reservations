@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Cal from '../calendarIcon';
 import Down from '../downArrow';
@@ -71,6 +72,7 @@ class Calendar extends React.Component {
   }
 
   render() {
+    const { newStatus, showCalendar } = this.props;
     return (
 
       <StyledCalendar>
@@ -79,7 +81,7 @@ class Calendar extends React.Component {
             { Cal(16) }
           </StyledCal>
         </span>
-        <StyledDate onClick={() => this.props.newStatus(!(this.props.showCalendar))}>{ this.date()}</StyledDate>
+        <StyledDate onClick={() => newStatus(!(showCalendar))}>{ this.date()}</StyledDate>
         <StyledDown>
           { Down(7) }
         </StyledDown>
@@ -88,6 +90,12 @@ class Calendar extends React.Component {
     );
   }
 }
+
+Calendar.propTypes = {
+  date: PropTypes.instanceOf(Date).isRequired,
+  newStatus: PropTypes.func.isRequired,
+  showCalendar: PropTypes.bool.isRequired,
+};
 
 
 export default Calendar;

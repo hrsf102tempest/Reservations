@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import icon from '../../../../icon.png';
 import Down from '../downArrow';
@@ -56,13 +57,11 @@ const PeoplePerRes = (props) => {
     optionText.push(text);
   }
 
-  const options = optionText.map((filler, index) => {
-    return (
-      <option className={`entry${index}`}>
-        { filler }
-      </option>
-    );
-  });
+  const options = optionText.map((filler, index) => (
+    <option className={`entry${index}`}>
+      { filler }
+    </option>
+  ));
 
   return (
     <Wrapper>
@@ -78,5 +77,8 @@ const PeoplePerRes = (props) => {
   );
 };
 
+PeoplePerRes.propTypes = {
+  maxPeople: PropTypes.number.isRequired,
+};
 
 export default PeoplePerRes;

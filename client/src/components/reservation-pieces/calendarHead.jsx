@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Letters from './dayLetter';
 
@@ -57,7 +58,6 @@ const CalendarHead = (props) => {
   const monthYear = `${getMonth()} ${year}`;
 
   const newMonthYear = (str) => {
-    console.log(str, month, year);
     if (str === 'back') {
       if (month === 0) {
         return [11, year - 1];
@@ -78,6 +78,12 @@ const CalendarHead = (props) => {
       <Letters />
     </div>
   );
+};
+
+CalendarHead.propTypes = {
+  month: PropTypes.number.isRequired,
+  year: PropTypes.number.isRequired,
+  newDate: PropTypes.func.isRequired,
 };
 
 export default CalendarHead;

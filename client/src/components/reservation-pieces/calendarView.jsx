@@ -1,8 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const StyledDayEmpty = (dayNum) => {
-  return styled.div`
+const StyledDayEmpty = dayNum => styled.div`
     display: inline-block;
     text-align: center;
     height: 30px;
@@ -23,10 +23,8 @@ const StyledDayEmpty = (dayNum) => {
       box-shadow: rgb(205, 218, 226) 0px 0px 2px 0px inset;
     }
   `;
-};
 
-const ValidDay = (dayNum) => {
-  return styled.div`
+const ValidDay = dayNum => styled.div`
     display: inline-block;
     text-align: center;
     height: 30px;
@@ -44,12 +42,11 @@ const ValidDay = (dayNum) => {
       box-shadow: rgb(205, 218, 226) 0px 0px 2px 0px inset;
     }
   `;
-};
+
 
 ValidDay.displayName = 'ValidDay';
 
-const CurrentDay = (dayNum) => {
-  return styled.div`
+const CurrentDay = dayNum => styled.div`
     display: inline-block;
     text-align: center;
     font-weight: 700;
@@ -70,13 +67,11 @@ const CurrentDay = (dayNum) => {
       cursor: pointer;
     }
   `;
-};
 
 CurrentDay.displayName = 'CurrentDay';
 
 
-const InvalidDay = (dayNum) => {
-  return styled.div`
+const InvalidDay = dayNum => styled.div`
     display: inline-block;
     text-align: center;
     color: rgb(204, 204, 204);
@@ -95,7 +90,6 @@ const InvalidDay = (dayNum) => {
       cursor: not-allowed;
     }
   `;
-};
 
 InvalidDay.displayName = 'InvalidDay';
 
@@ -111,7 +105,15 @@ StyledWeek.displayName = 'StyledWeek';
 StyledView.displayName = 'StyledView';
 
 const Days = (props) => {
-  const { month, year, daysOut, date, newViewedDate, newStatus, showCalendar, } = props;
+  const {
+    month,
+    year,
+    daysOut,
+    date,
+    newViewedDate,
+    newStatus,
+    showCalendar,
+  } = props;
 
   const divDate = (targetDay, targetMonth = month, targetYear = year) => {
     const result = new Date(targetYear, targetMonth, targetDay);
@@ -210,6 +212,16 @@ const Days = (props) => {
       { calendarDays }
     </StyledView>
   );
+};
+
+Days.propTypes = {
+  month: PropTypes.number.isRequired,
+  year: PropTypes.number.isRequired,
+  daysOut: PropTypes.number.isRequired,
+  date: PropTypes.instanceOf(Date).isRequired,
+  newViewedDate: PropTypes.instanceOf(Date).isRequired,
+  newStatus: PropTypes.func.isRequired,
+  showCalendar: PropTypes.bool.isRequired,
 };
 
 export default Days;

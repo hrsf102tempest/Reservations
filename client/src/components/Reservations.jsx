@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import $ from 'jquery';
 import styled from 'styled-components';
 import TimeSlotsContainer from '../containers/reservations/TimeSlotsContainer';
@@ -108,7 +109,6 @@ class Reservations extends React.Component {
           <Title>Make a Reservation</Title>
         </Wrapper>
         <CalendarContainer />
-        {/* secret Div for full calendar */}
         <TimeSlotsContainer />
         <PeoplePerResContainer />
         <FindTableContainer />
@@ -121,5 +121,10 @@ class Reservations extends React.Component {
     );
   }
 }
+
+Reservations.propTypes = {
+  newBusinessSelected: PropTypes.func.isRequired,
+  showCalendar: PropTypes.bool.isRequired,
+};
 
 export default Reservations;

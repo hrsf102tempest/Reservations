@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Down from '../downArrow';
 
@@ -129,13 +130,11 @@ class TimeSlots extends React.Component {
 
   makeOptions() {
     const array = this.availableTimes();
-    const options = array.map((timeString) => {
-      return (
-        <option>
-          {timeString}
-        </option>
-      );
-    });
+    const options = array.map(timeString => (
+      <option>
+        {timeString}
+      </option>
+    ));
 
     return options;
   }
@@ -155,5 +154,17 @@ class TimeSlots extends React.Component {
   }
 }
 
+TimeSlots.propTypes = {
+  date: PropTypes.instanceOf(Date).isRequired,
+  hours: PropTypes.shape({
+    Sunday: PropTypes.string.isRequired,
+    Monday: PropTypes.string.isRequired,
+    Tuesday: PropTypes.string.isRequired,
+    Wednesday: PropTypes.string.isRequired,
+    Thursday: PropTypes.string.isRequired,
+    Friday: PropTypes.string.isRequired,
+    Saturday: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default TimeSlots;
