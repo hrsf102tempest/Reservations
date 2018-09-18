@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import FindTable from '../../components/reservation-pieces/findTable.jsx';
+import FindTable from '../../components/reservation-pieces/findTable';
 // import ACTION from '../../actions/TimeSlots';
 
 const mapDispatchToProps = (dispatch) => ({

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Letters from './dayLetter.jsx';
+import Letters from './dayLetter';
 
 const Wrapper = styled.div`
   text-align: center;

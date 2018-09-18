@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import CalendarHead from '../../components/reservation-pieces/calendarHead.jsx';
+import CalendarHead from '../../components/reservation-pieces/calendarHead';
 import changeMonthYear from '../../actions/CalendarHeadAction';
 
 const mapDispatchToProps = (dispatch) => {

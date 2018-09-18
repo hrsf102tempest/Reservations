@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import icon from '../../../../icon.png';
-import Down from '../downArrow.jsx';
+import Down from '../downArrow';
 
 const Wrapper = styled.div`
   display: inline-block;

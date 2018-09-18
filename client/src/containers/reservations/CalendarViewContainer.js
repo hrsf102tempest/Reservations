@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import CalendarView from '../../components/reservation-pieces/calendarView.jsx';
+import CalendarView from '../../components/reservation-pieces/calendarView';
 import CalendarViewReducer from '../../actions/CalendarViewAction';
 import changeStatus from '../../actions/CalendarAction';
 

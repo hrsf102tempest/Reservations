@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Down from '../downArrow.jsx';
+import Down from '../downArrow';
 
 const clockImg = 'https://visualpharm.com/assets/704/Clock-595b40b75ba036ed117d92ff.svg';
 

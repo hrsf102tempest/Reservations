@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Cal from '../calendarIcon.jsx';
-import Down from '../downArrow.jsx';
+import Cal from '../calendarIcon';
+import Down from '../downArrow';
 
 const StyledCal = styled.span`
   height: 16px;
