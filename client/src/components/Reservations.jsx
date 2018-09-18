@@ -35,8 +35,8 @@ const ResBox = styled.div`
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   height: 164px;
   width: 298px;
-  border: 1px solid black;
-  border-radius: 10px;
+  border: 1px solid rgb(230, 230, 230);
+  border-radius: 5px;
   background-color: white;
   display: inline-block;
 

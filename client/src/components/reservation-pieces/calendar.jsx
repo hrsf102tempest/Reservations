@@ -18,7 +18,7 @@ const StyledCalendar = styled.button`
   -webkit-appearance: none;
   width: 275px;
   height: 26px;
-  border: 1px solid black;
+  border: 1px solid rgb(204, 204, 204);
   border-radius: 5px;
   text-align: center;
   margin: 7px 9px 0 9px;

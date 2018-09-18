@@ -5,15 +5,18 @@ import Down from '../downArrow.jsx';
 
 const Wrapper = styled.div`
   display: inline-block;
+  margin-left: 12px;
 `;
 
 const SelectWrapper = styled.select`
   -webkit-appearance: none;
   display: inline-block;
-  padding: 8px 42px;
+  padding: 6px 35px;
   position: relative;
   z-index: 2;
-  background-color: rgba(0, 0, 0, 0);
+  font-size: 14px;
+  border: 1px solid rgb(204,204,204);
+  background-color: rgba(0,0,0,0);
 
   :focus {
     outline: none;
