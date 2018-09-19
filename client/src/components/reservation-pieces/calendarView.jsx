@@ -219,7 +219,7 @@ Days.propTypes = {
   year: PropTypes.number.isRequired,
   daysOut: PropTypes.number.isRequired,
   date: PropTypes.instanceOf(Date).isRequired,
-  newViewedDate: PropTypes.instanceOf(Date).isRequired,
+  newViewedDate: PropTypes.func.isRequired,
   newStatus: PropTypes.func.isRequired,
   showCalendar: PropTypes.bool.isRequired,
 };

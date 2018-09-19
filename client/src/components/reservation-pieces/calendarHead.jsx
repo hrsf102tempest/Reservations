@@ -19,6 +19,10 @@ const StyledBack = styled.div`
   padding-left: 5px;
   position: relative;
   bottom: 2px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 StyledBack.displayName = 'StyledBack';
@@ -33,6 +37,10 @@ const StyledForward = styled.div`
   padding-right: 5px;
   position: relative;
   bottom: 2px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 StyledForward.displayName = 'StyledForward';

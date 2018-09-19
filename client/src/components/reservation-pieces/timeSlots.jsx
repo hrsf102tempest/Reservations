@@ -154,6 +154,10 @@ class TimeSlots extends React.Component {
   }
 }
 
+TimeSlots.defaultProps = {
+  hours: null,
+};
+
 TimeSlots.propTypes = {
   date: PropTypes.instanceOf(Date).isRequired,
   hours: PropTypes.shape({
@@ -164,7 +168,7 @@ TimeSlots.propTypes = {
     Thursday: PropTypes.string.isRequired,
     Friday: PropTypes.string.isRequired,
     Saturday: PropTypes.string.isRequired,
-  }).isRequired,
+  }),
 };
 
 export default TimeSlots;
