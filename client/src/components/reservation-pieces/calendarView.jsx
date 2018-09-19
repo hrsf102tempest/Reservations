@@ -24,7 +24,7 @@ const StyledDayEmpty = dayNum => styled.div`
     }
   `;
 
-const ValidDay = dayNum => styled.div`
+const ValidHoverDay = dayNum => styled.div`
     display: inline-block;
     text-align: center;
     height: 30px;
@@ -44,7 +44,7 @@ const ValidDay = dayNum => styled.div`
   `;
 
 
-ValidDay.displayName = 'ValidDay';
+ValidHoverDay.displayName = 'ValidDay';
 
 const CurrentDay = dayNum => styled.div`
     display: inline-block;
@@ -184,7 +184,7 @@ const Days = (props) => {
       }
 
       if (dayDate >= currentDate && dayDate <= farthest) {
-        const Valid = ValidDay(index);
+        const Valid = ValidHoverDay(index);
         return (
           <Valid className={`day${day}`} onClick={() => { newViewedDate(dayDate); newStatus(!(showCalendar)); }}>
             { day }
