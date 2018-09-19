@@ -67,23 +67,20 @@ const SecretDiv = styled.div`
 
 SecretDiv.displayName = 'SecretDiv';
 
-const DivPoint = styled.div`
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-  border-left: 1px solid rgb(204, 204, 204);
-  border-top: 1px solid rgb(204, 204, 204);
-  height: 13px;
-  width: 13px;
-  display: inline-block;
-  background-color: white;
-  position: absolute;
-  left: 125px;
-  top: -6px;
-`;
-
 class Reservations extends React.Component {
   componentDidMount() {
-    this.fetch(7);
+    // function that gets all search params
+    const parseQueryString = () => {
+      const str = window.location.search;
+      const objURL = {};
+      str.replace(new RegExp('([^?=&]+)(=([^&]*))?', 'g'), ($0, $1, $2, $3) => {
+        objURL[$1] = $3;
+      });
+      return objURL;
+    };
+    const params = parseQueryString();
+    const idParam = params.id;
+    this.fetch(idParam);
   }
 
   fetch(id) {
@@ -114,7 +111,6 @@ class Reservations extends React.Component {
         <FindTableContainer />
 
         <SecretDiv visible={showCalendar}>
-          <DivPoint />
           <CalendarFull />
         </SecretDiv>
       </ResBox>

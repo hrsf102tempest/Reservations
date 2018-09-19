@@ -69,9 +69,9 @@ describe('Components', () => {
   });
 
   describe('CalendarFull component', () => {
-    test('should contain 2 child nodes', () => {
+    test('should contain 3 child nodes', () => {
       const wrapper = shallow(<CalendarFull />);
-      expect(wrapper.children().length).toEqual(2);
+      expect(wrapper.children().length).toEqual(3);
     });
   });
 

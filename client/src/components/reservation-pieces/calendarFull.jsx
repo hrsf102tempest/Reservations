@@ -9,17 +9,32 @@ const StyledCalendar = styled.div`
   width: 272px;
 `;
 
-StyledCalendar.displayName = 'StyledCalendar';
+const DivPoint = styled.div`
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border-left: 1px solid rgb(204, 204, 204);
+  border-top: 1px solid rgb(204, 204, 204);
+  height: 13px;
+  width: 13px;
+  display: inline-block;
+  background-color: white;
+  background: linear-gradient(135deg, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 54%);
+  position: absolute;
+  left: 125px;
+  top: -6px;
+`;
 
 StyledCalendar.displayName = 'StyledCalendar';
 
-const CalendarFull = () => {
-  return (
-    <StyledCalendar>
-      <CalendarHeadContainer />
-      <CalendarViewContainer />
-    </StyledCalendar>
-  );
-};
+StyledCalendar.displayName = 'StyledCalendar';
+
+const CalendarFull = () => (
+  <StyledCalendar>
+    <DivPoint />
+    <CalendarHeadContainer />
+    <CalendarViewContainer />
+  </StyledCalendar>
+);
+
 
 export default CalendarFull;

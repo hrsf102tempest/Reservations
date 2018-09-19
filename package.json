@@ -35,11 +35,13 @@
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^3.4.6",
+    "styled-components": "^1.4.6",
     "url-loader": "^1.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.0.1",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@quickbaseoss/babel-plugin-styled-components-css-namespace": "^0.1.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "babel-plugin-styled-components": "^1.7.1",
