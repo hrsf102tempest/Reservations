@@ -152,14 +152,18 @@ const Days = (props) => {
     }
     return matrix;
   };
-
+  let weekCount = -1;
+  let dayCount = -1;
   const calendarDays = calendarMatrix(month, year).map((days, weekNum) => {
+    weekCount += 1;
     const week = days.map((day, index) => {
+      dayCount += 1;
+
       const dayDate = divDate(day);
       if (day === undefined) {
         const EmptyDiv = StyledDayEmpty(index);
         return (
-          <EmptyDiv>
+          <EmptyDiv key={`${weekCount}_${dayCount}`}>
             { 'a' }
           </EmptyDiv>
         );
@@ -168,7 +172,7 @@ const Days = (props) => {
       if (dayDate < currentDate) {
         const Invalid = InvalidDay(index);
         return (
-          <Invalid className={`day${day}`}>
+          <Invalid key={`${weekCount}_${dayCount}`} className={`day${day}`}>
             { day }
           </Invalid>
         );
@@ -177,7 +181,7 @@ const Days = (props) => {
       if (dayDate.getDate() === date.getDate() && dayDate.getMonth() === date.getMonth()) {
         const Current = CurrentDay(index);
         return (
-          <Current className={`day${day}`} onClick={() => { newViewedDate(dayDate); newStatus(!(showCalendar)); }}>
+          <Current key={`${weekCount}_${dayCount}`} className={`day${day}`} onClick={() => { newViewedDate(dayDate); newStatus(!(showCalendar)); }}>
             { day }
           </Current>
         );
@@ -186,7 +190,7 @@ const Days = (props) => {
       if (dayDate >= currentDate && dayDate <= farthest) {
         const Valid = ValidHoverDay(index);
         return (
-          <Valid className={`day${day}`} onClick={() => { newViewedDate(dayDate); newStatus(!(showCalendar)); }}>
+          <Valid key={`${weekCount}_${dayCount}`} className={`day${day}`} onClick={() => { newViewedDate(dayDate); newStatus(!(showCalendar)); }}>
             { day }
           </Valid>
         );
@@ -194,14 +198,14 @@ const Days = (props) => {
 
       const Invalid = InvalidDay(index);
       return (
-        <Invalid className={`day${day}`}>
+        <Invalid key={`${weekCount}_${dayCount}`} className={`day${day}`}>
           { day }
         </Invalid>
       );
     });
 
     return (
-      <StyledWeek className={`week${weekNum}`}>
+      <StyledWeek key={`week_${weekCount}`} className={`week${weekNum}`}>
         { week }
       </StyledWeek>
     );
@@ -225,3 +229,6 @@ Days.propTypes = {
 };
 
 export default Days;
+
+
+//  .attrs({ key: `styled_${weekCount}_${dayCount}` });\

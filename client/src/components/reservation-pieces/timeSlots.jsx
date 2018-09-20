@@ -130,11 +130,15 @@ class TimeSlots extends React.Component {
 
   makeOptions() {
     const array = this.availableTimes();
-    const options = array.map(timeString => (
-      <option>
-        {timeString}
-      </option>
-    ));
+    let optionNum = -1;
+    const options = array.map((timeString) => {
+      optionNum += 1;
+      return (
+        <option key={`option_${optionNum}`}>
+          {timeString}
+        </option>
+      );
+    });
 
     return options;
   }

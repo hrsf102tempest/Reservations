@@ -56,12 +56,15 @@ const PeoplePerRes = (props) => {
     }
     optionText.push(text);
   }
-
-  const options = optionText.map((filler, index) => (
-    <option className={`entry${index}`}>
-      { filler }
-    </option>
-  ));
+  let optionNum = -1;
+  const options = optionText.map((filler, index) => {
+    optionNum += 1;
+    return (
+      <option key={`entry_${optionNum}`} className={`entry${index}`}>
+        { filler }
+      </option>
+    );
+  });
 
   return (
     <Wrapper>
